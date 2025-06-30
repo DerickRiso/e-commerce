@@ -1,9 +1,9 @@
 import React from "react";
-import account from "../assets/icons/account.png";
-import cart from "../assets/icons/cart.png";
-import like from "../assets/icons/like.png";
-import search from "../assets/icons/search.png";
-import "../styles/header.css";
+import account from "../../assets/icons/account.png";
+import cart from "../../assets/icons/cart.png";
+import like from "../../assets/icons/like.png";
+import search from "../../assets/icons/search.png";
+import "./header.css";
 
 export function Header() {
     return (
