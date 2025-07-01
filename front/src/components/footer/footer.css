@@ -1,0 +1,57 @@
+.info p, footer address {
+    color: #9F9F9F;
+}
+
+footer .info{
+    display: flex;
+    justify-content: space-around;
+    gap: 10vw;
+    width: 90vw;
+    padding: 50px 0px;
+    border-bottom: solid 1px #9F9F9F;
+}
+
+footer .info .address {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 300px;
+}
+
+footer .info .links,
+footer .info .help,
+footer .info .newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+footer .info .links nav ul,
+footer .info .help ul {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+footer .info .links nav ul li a,
+footer .info .help ul li {
+    color: black;
+    font-weight: 500;
+}
+
+footer .info .newsletter form {
+    display: flex;
+    gap: 10px;
+}
+
+footer .info .newsletter form input {
+    border: none;
+    border-bottom: solid 1px black;
+    background-color: transparent;
+    padding: 8px 0px;
+    text-align: left;
+}
+
+footer .rights {
+    padding: 40px 0px;
+}

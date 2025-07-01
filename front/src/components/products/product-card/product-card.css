@@ -1,0 +1,15 @@
+.product-card {
+    background-color: #F4F5F7;
+}
+
+.product-card img {
+    width: 200px;
+}
+
+.product-card h3 {
+    font-weight: 500;
+}
+
+.product-card p{
+    font-size: 0.9em;
+}

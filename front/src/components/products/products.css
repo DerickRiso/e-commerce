@@ -1,0 +1,13 @@
+.products {
+    padding: 40px 0px;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.show-more {
+    color: #B88E2F;
+    border: 1px solid #B88E2F;
+    padding: 10px 50px;
+}
