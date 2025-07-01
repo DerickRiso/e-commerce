@@ -7,7 +7,6 @@
     background-image: url(../../assets/banner.png);
     background-size: contain;
     background-repeat: no-repeat;
-    
 }
 
 .banner div {
@@ -16,7 +15,6 @@
     background-color: #FFF3E3;
     border-radius: 10px 10px 0px 0px;
     margin-right: 80px;
-    
 }
 
 .banner div p {

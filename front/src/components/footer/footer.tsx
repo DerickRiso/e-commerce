@@ -1,10 +1,10 @@
-import { Nav } from "../header/nav/nav";
+import { Nav } from "../nav/nav";
 import "./footer.css";
 
 export function Footer() {
     return (
         <footer>
-            <div className="info">
+            <div className="info" id="contact">
                 <div className="address">
                     <h3>Funiro.</h3>
                     <address>400 University Drive Suite 200 Coral Gables,<br />FL 33134 USA</address>

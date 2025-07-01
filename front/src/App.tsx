@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      <Products />
+      <Products title={true} button={true} pages={false} />
       <Features />
       <Footer />
     </div>

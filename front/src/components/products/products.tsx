@@ -1,13 +1,21 @@
-import { ProductCard } from "./product-card/productCard"
+import { ProductCard } from "./product-card/productCard";
 import "./products.css";
-import img from "../../assets/dining.png"
+import img from "../../assets/dining.png";
 
-export function Products() {
+type ProductsElementsProps = {
+    title: boolean,
+    button: boolean,
+    pages: boolean
+}
+
+export function Products(props: ProductsElementsProps) {
+
     return (
         <section className="products">
-            <h2>Our Products</h2>
+            {props.title && <h2>Our Products</h2>}
+
             <ProductCard
-             img={img}
+             img={""}
              alt={"Mesa"}
              title={"Syltherine"}
              description={"Stylish cafe chair"}
@@ -22,7 +30,16 @@ export function Products() {
              price={""}
             />
 
-            <a href="#" className="show-more">Show More</a>
+            {props.title && <a href="#" className="show-more">Show More</a>}
+
+            {props.pages && <div className="pages">
+                <div>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                </div>
+                <button>Next</button>
+            </div>}
         </section>
     )
 }

@@ -11,3 +11,20 @@ h2 {
     border: 1px solid #B88E2F;
     padding: 10px 50px;
 }
+
+.pages {
+    display: flex;
+    gap: 25px;
+}
+
+.pages div {
+    display: flex;
+    gap: 15px;
+}
+
+.pages button{
+    border: none;
+    border-radius: 3px;
+    padding: 12px 17px;
+    background-color: #F9F1E7;
+}

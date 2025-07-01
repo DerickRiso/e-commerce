@@ -4,7 +4,7 @@ import cart from "../../assets/icons/cart.png";
 import like from "../../assets/icons/like.png";
 import search from "../../assets/icons/search.png";
 import "./header.css";
-import { Nav } from "./nav/nav";
+import { Nav } from "../nav/nav";
 
 export function Header() {
     return (

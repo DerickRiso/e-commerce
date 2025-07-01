@@ -7,7 +7,7 @@ import "./features.css";
 
 export function Features() {
     return (
-        <aside className="features">
+        <aside className="features" id="about">
             <ul>
                 <ListFeatures img={trophy} title="High Quality" subtitle="Crafted from top materials"/>
                 <ListFeatures img={check} title="Warranty Protection" subtitle="Over 2 years"/>
