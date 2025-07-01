@@ -1,0 +1,102 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "img": "/assets/dining.png",
+      "alt": "Cama de casal",
+      "title": "Cama Queen",
+      "description": "Cama confortável.",
+      "price": "R$ 2.500,00",
+      "new": true,
+      "sale": "R$ 2.500,00" 
+    },
+    {
+      "id": 2,
+      "img": "/assets/dining.png",
+      "alt": "Mesa de jantar",
+      "title": "Mesa de Jantar",
+      "description": "Mesa de jantar.",
+      "price": "R$ 1.800,00"
+    },
+    {
+      "id": 3,
+      "img": "/assets/living.png",
+      "alt": "Sofá retrátil",
+      "title": "Sofá Retrátil",
+      "description": "Sofá retrátil.",
+      "price": "R$ 3.200,00"
+    },
+    {
+      "id": 4,
+      "img": "/assets/bedroom.png",
+      "alt": "Guarda-roupa",
+      "title": "Guarda-roupa 6 portas",
+      "description": "Guarda-roupa espaçoso com espelho.",
+      "price": "R$ 2.100,00"
+    },
+    {
+      "id": 5,
+      "img": "/assets/dining.png",
+      "alt": "Cadeira de jantar",
+      "title": "Cadeira Estofada",
+      "description": "Cadeira confortável para sala de jantar.",
+      "price": "R$ 350,00"
+    },
+    {
+      "id": 6,
+      "img": "/assets/living.png",
+      "alt": "Poltrona",
+      "title": "Poltrona Reclinável",
+      "description": "Poltrona reclinável para sala de estar.",
+      "price": "R$ 1.200,00"
+    },
+    {
+      "id": 7,
+      "img": "/assets/bedroom.png",
+      "alt": "Criado-mudo",
+      "title": "Criado-mudo Moderno",
+      "description": "Criado-mudo com gaveta e nicho.",
+      "price": "R$ 250,00"
+    },
+    {
+      "id": 8,
+      "img": "/assets/dining.png",
+      "alt": "Buffet",
+      "title": "Buffet de Madeira",
+      "description": "Buffet para sala de jantar com 3 portas.",
+      "price": "R$ 1.000,00"
+    },
+    {
+      "id": 9,
+      "img": "/assets/living.png",
+      "alt": "Rack para TV",
+      "title": "Rack para TV 60\"",
+      "description": "Rack moderno para sala de estar.",
+      "price": "R$ 800,00"
+    },
+    {
+      "id": 10,
+      "img": "/assets/bedroom.png",
+      "alt": "Cômoda",
+      "title": "Cômoda 5 gavetas",
+      "description": "Cômoda espaçosa para quarto.",
+      "price": "R$ 700,00"
+    },
+    {
+      "id": 11,
+      "img": "/assets/dining.png",
+      "alt": "Cristaleira",
+      "title": "Cristaleira de Vidro",
+      "description": "Cristaleira elegante para sala de jantar.",
+      "price": "R$ 1.400,00"
+    },
+    {
+      "id": 12,
+      "img": "/assets/living.png",
+      "alt": "Mesa de centro",
+      "title": "Mesa de Centro Redonda",
+      "description": "Mesa de centro para sala de estar.",
+      "price": "R$ 600,00"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { Categories } from './components/categories/categories';
 import { Products } from './components/products/products';
 import { Features } from './components/features/features';
 import { Footer } from './components/footer/footer';
+import { ShopNav } from './components/shop-nav/shopNav';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      <Products title={true} button={true} pages={false} />
+      <Products title={true} />
+      <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />
     </div>

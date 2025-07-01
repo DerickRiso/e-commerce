@@ -1,5 +1,6 @@
 .product-card {
     background-color: #F4F5F7;
+    width: 200px;
 }
 
 .product-card img {
@@ -12,4 +13,12 @@
 
 .product-card p{
     font-size: 0.9em;
+}
+
+.product-card span {
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    display: none;
 }

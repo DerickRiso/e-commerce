@@ -1,45 +1,41 @@
 import { ProductCard } from "./product-card/productCard";
+import { useEffect, useState } from "react";
+import { requestApi, Product } from "../../services/productService";
 import "./products.css";
 import img from "../../assets/dining.png";
 
 type ProductsElementsProps = {
-    title: boolean,
-    button: boolean,
-    pages: boolean
+    title: boolean
 }
 
 export function Products(props: ProductsElementsProps) {
+
+    // Converte a response em array de objetos
+    const [products, setProducts] = useState<Product[]>([]);
+    useEffect(() => {
+        requestApi("http://localhost:3001/products").then((data) => {
+            setProducts(data);
+        });
+    }, []);
 
     return (
         <section className="products">
             {props.title && <h2>Our Products</h2>}
 
-            <ProductCard
-             img={""}
-             alt={"Mesa"}
-             title={"Syltherine"}
-             description={"Stylish cafe chair"}
-             price={"Rp 2.500.000"}
-            />
-
-            <ProductCard
-             img={""}
-             alt={""}
-             title={""}
-             description={""}
-             price={""}
-            />
-
-            {props.title && <a href="#" className="show-more">Show More</a>}
-
-            {props.pages && <div className="pages">
-                <div>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                </div>
-                <button>Next</button>
-            </div>}
+            <div className="grid-container">
+                {products.map(product => (
+                    <ProductCard
+                        img={img}   //TODO: Preciso de imagens no banco de dados para funcionar totalmente
+                                    //TODO: Adicionar campo categoria
+                        alt={product.alt}
+                        title={product.title}
+                        description={product.description}
+                        price={product.price}
+                        new={product.new}   // Fazer esses indicadores aparecer
+                        sale={product.sale} //
+                    />
+                ))}
+            </div>
         </section>
     )
 }

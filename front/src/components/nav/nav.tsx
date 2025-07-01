@@ -2,8 +2,8 @@ import {useNavigate} from "react-router-dom";
 
 export function Nav() {
 
+    // hook para navegacao
     const navigate = useNavigate();
-
     function navigateTo(path: string) {
         navigate(`${path}`);
     }

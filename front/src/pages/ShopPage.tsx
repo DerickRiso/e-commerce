@@ -6,6 +6,7 @@ import { Products } from '../components/products/products';
 import { Features } from '../components/features/features';
 import { Footer } from '../components/footer/footer';
 import { Filter } from '../components/filter/filter';
+import { ShopNav } from '../components/shop-nav/shopNav';
 
 export function ShopPage() {
     return (
@@ -13,7 +14,9 @@ export function ShopPage() {
             <Header />
             <BannerShop />
             <Filter />
-            <Products title={false} button={false} pages={true} />
+            <Products title={false} />
+            <ShopNav pages={true} button={false}/>
+            
             
             <Features />
             <Footer />
