@@ -1,6 +1,6 @@
 import { ProductCard } from "./product-card/productCard";
 import { useEffect, useState } from "react";
-import { requestApi, Product } from "../../services/productService";
+import { getProducts, Product } from "../../services/productService";
 import "./products.css";
 import img from "../../assets/dining.png";
 
@@ -13,7 +13,7 @@ export function Products(props: ProductsElementsProps) {
     // Converte a response em array de objetos
     const [products, setProducts] = useState<Product[]>([]);
     useEffect(() => {
-        requestApi("http://localhost:3001/products").then((data) => {
+        getProducts("http://localhost:3001/products").then((data) => {
             setProducts(data);
         });
     }, []);
@@ -25,14 +25,15 @@ export function Products(props: ProductsElementsProps) {
             <div className="grid-container">
                 {products.map(product => (
                     <ProductCard
-                        img={img}   //TODO: Preciso de imagens no banco de dados para funcionar totalmente
-                                    //TODO: Adicionar campo categoria
+                        key={product.id}
+                        img={product.img}
+                        categorie={product.categorie}
                         alt={product.alt}
                         title={product.title}
                         description={product.description}
                         price={product.price}
-                        new={product.new}   // Fazer esses indicadores aparecer
-                        sale={product.sale} //
+                        new={product.new}
+                        sale={product.sale}
                     />
                 ))}
             </div>

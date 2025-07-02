@@ -1,3 +1,4 @@
+import { Categorie } from "../../../services/productService";
 import "./product-card.css";
 
 type ProductCardProps = {
@@ -5,20 +6,31 @@ type ProductCardProps = {
     alt: string,
     title: string,
     description: string,
-    price: string,
+    price: number,
     new: boolean,
-    sale: string
+    sale: number,
+    categorie: Categorie
 }
 
 export function ProductCard(props: ProductCardProps) {
+
     return (
         <aside className="product-card">
             {props.new && <span>New</span>}
             <img src={props.img} alt={props.alt} />
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
-            <p>{props.price}</p>
-            <span>{props.sale}</span>
+            <div className="title">
+                <h3>{props.title}</h3>
+                <p>{props.description}</p>
+            </div>
+            <div className="prices">
+                {/* Caso haja promoção, mostra o valor menor */}
+                {props.price !== props.sale && <p><strong>R${props.sale}</strong></p>}
+                {props.price !== props.sale ? (
+                    <p className="risked">R${props.price}</p>
+                ) : (
+                    <p><strong>R${props.price}</strong></p>
+                )}
+            </div>
         </aside>
     )
 }

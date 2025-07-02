@@ -1,19 +1,27 @@
+import axios from "axios"
+
+export enum Categorie {
+  Dining = "dining",
+  Living = "living",
+  Bedroom = "bedroom"
+}
+
 export type Product = {
   id: number;
   img: string;
   alt: string;
   title: string;
   description: string;
-  price: string;
+  price: number;
   new: boolean;
-  sale: string;
+  sale: number;
+  categorie: Categorie;
 };
 
-export async function requestApi (url: string) {
-    const response = await fetch(url);
-    const dados = await response.json();
+export async function getProducts(url: string) {
+  const response = await axios.get(url);
+  const data = response.data;
 
-    const products: Product[] = dados;
-
-    return products;
+  const products: Product[] = data;
+  return products;
 }

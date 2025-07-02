@@ -2,101 +2,124 @@
   "products": [
     {
       "id": 1,
-      "img": "/assets/dining.png",
+      "img": "https://i.ibb.co/bRLh4Gf0/Images-1.png",
       "alt": "Cama de casal",
       "title": "Cama Queen",
       "description": "Cama confortável.",
-      "price": "R$ 2.500,00",
+      "price": 2500.0,
       "new": true,
-      "sale": "R$ 2.500,00" 
+      "sale": 2500.0,
+      "categorie": "bedroom"
     },
     {
       "id": 2,
-      "img": "/assets/dining.png",
+      "img": "https://i.ibb.co/YFNcXWkZ/Images-2.png",
       "alt": "Mesa de jantar",
       "title": "Mesa de Jantar",
       "description": "Mesa de jantar.",
-      "price": "R$ 1.800,00"
+      "price": 1800.0,
+      "sale": 1800.0,
+      "categorie": "dining"
     },
     {
       "id": 3,
-      "img": "/assets/living.png",
+      "img": "https://i.ibb.co/Z6zpMRKj/Images-3.png",
       "alt": "Sofá retrátil",
       "title": "Sofá Retrátil",
       "description": "Sofá retrátil.",
-      "price": "R$ 3.200,00"
+      "price": 3200.0,
+      "sale": 2999.99,
+      "categorie": "living"
     },
     {
       "id": 4,
-      "img": "/assets/bedroom.png",
+      "img": "https://i.ibb.co/LdpY15kh/Images-4.png",
       "alt": "Guarda-roupa",
       "title": "Guarda-roupa 6 portas",
-      "description": "Guarda-roupa espaçoso com espelho.",
-      "price": "R$ 2.100,00"
+      "description": "Espaçoso com espelho.",
+      "price": 2100.0,
+      "sale": 2100.0,
+      "categorie": "bedroom"
     },
     {
       "id": 5,
-      "img": "/assets/dining.png",
+      "img": "https://i.ibb.co/JjJ6FY74/Images-5.png",
       "alt": "Cadeira de jantar",
       "title": "Cadeira Estofada",
-      "description": "Cadeira confortável para sala de jantar.",
-      "price": "R$ 350,00"
+      "description": "Cadeira confortável.",
+      "price": 350.0,
+      "sale": 299.99,
+      "categorie": "dining"
     },
     {
       "id": 6,
-      "img": "/assets/living.png",
+      "img": "https://i.ibb.co/1SBdbtN/Images-6.png",
       "alt": "Poltrona",
       "title": "Poltrona Reclinável",
-      "description": "Poltrona reclinável para sala de estar.",
-      "price": "R$ 1.200,00"
+      "description": "Poltrona para sala de estar.",
+      "price": 1200.0,
+      "sale": 1200.0,
+      "categorie": "living"
     },
     {
       "id": 7,
-      "img": "/assets/bedroom.png",
-      "alt": "Criado-mudo",
-      "title": "Criado-mudo Moderno",
-      "description": "Criado-mudo com gaveta e nicho.",
-      "price": "R$ 250,00"
+      "img": "https://i.ibb.co/7N8hZMkz/Images-7.png",
+      "alt": "Cama de solteiro",
+      "title": "Cama de solteiro",
+      "description": "Cama de solteiro.",
+      "price": 250.0,
+      "sale": 250.0,
+      "categorie": "bedroom"
     },
     {
       "id": 8,
-      "img": "/assets/dining.png",
+      "img": "https://i.ibb.co/gZp5tCBt/Images-8.png",
       "alt": "Buffet",
       "title": "Buffet de Madeira",
-      "description": "Buffet para sala de jantar com 3 portas.",
-      "price": "R$ 1.000,00"
+      "description": "Para sala de jantar.",
+      "price": 1000.0,
+      "sale": 899.99,
+      "categorie": "dining"
     },
     {
       "id": 9,
-      "img": "/assets/living.png",
+      "img": "https://i.ibb.co/bRLh4Gf0/Images-1.png",
       "alt": "Rack para TV",
       "title": "Rack para TV 60\"",
-      "description": "Rack moderno para sala de estar.",
-      "price": "R$ 800,00"
+      "description": "Rack moderno.",
+      "price": 800.0,
+      "sale": 800.0,
+      "categorie": "living"
     },
     {
       "id": 10,
-      "img": "/assets/bedroom.png",
+      "img": "https://i.ibb.co/YFNcXWkZ/Images-2.png",
       "alt": "Cômoda",
       "title": "Cômoda 5 gavetas",
-      "description": "Cômoda espaçosa para quarto.",
-      "price": "R$ 700,00"
+      "description": "Cômoda espaçosa.",
+      "price": 700.0,
+      "sale": 700.0,
+      "categorie": "bedroom"
     },
     {
       "id": 11,
-      "img": "/assets/dining.png",
+      "img": "https://i.ibb.co/Z6zpMRKj/Images-3.png",
       "alt": "Cristaleira",
       "title": "Cristaleira de Vidro",
-      "description": "Cristaleira elegante para sala de jantar.",
-      "price": "R$ 1.400,00"
+      "description": "Elegante para sala de jantar.",
+      "price": 1400.0,
+      "sale": 1400.0,
+      "categorie": "dining"
     },
     {
       "id": 12,
-      "img": "/assets/living.png",
+      "img": "https://i.ibb.co/LdpY15kh/Images-4.png",
       "alt": "Mesa de centro",
       "title": "Mesa de Centro Redonda",
-      "description": "Mesa de centro para sala de estar.",
-      "price": "R$ 600,00"
+      "description": "Mesa de centro.",
+      "price": 600.0,
+      "sale": 600.0,
+      "categorie": "living"
     }
   ]
 }

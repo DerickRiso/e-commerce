@@ -14,7 +14,7 @@ export function ShopNav(props: ShopNavProps) {
     }
 
     return (
-        <div>
+        <div className="shop-nav-container">
             {props.button && <a href="" onClick={()=>{navigateTo("/shop")}} className="show-more">Show More</a>}
 
             {props.pages && <div className="pages">

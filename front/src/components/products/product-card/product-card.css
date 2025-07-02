@@ -1,4 +1,7 @@
 .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background-color: #F4F5F7;
     width: 200px;
 }
@@ -9,10 +12,21 @@
 
 .product-card h3 {
     font-weight: 500;
+    padding-top: 8px;
 }
 
 .product-card p{
     font-size: 0.9em;
+}
+
+.product-card .title {
+    padding-left: 10px;
+}
+
+.product-card .prices {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
 }
 
 .product-card span {
@@ -21,4 +35,13 @@
     color: white;
     padding: 10px;
     display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.risked {
+    text-decoration: line-through;
+    color:rgb(161, 161, 161);
 }
