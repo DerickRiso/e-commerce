@@ -2,17 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Categorie, Product } from "../../../services/productService";
 import "./product-card.css";
 
-// type ProductCardProps = {
-//     img: string,
-//     alt: string,
-//     title: string,
-//     description: string,
-//     price: number,
-//     new: boolean,
-//     sale: number,
-//     categorie: Categorie
-// }
-
 export function ProductCard(props: Product) {
 
     const navigate = useNavigate();
@@ -22,7 +11,7 @@ export function ProductCard(props: Product) {
 
     return (
         <aside className="product-card" onClick={() => {
-            navigateTo(`/shop/${props.id}`)
+            navigateTo(`/${props.id}`)
         }}>
             {props.new && <span>New</span>}
             <img src={props.img} alt={props.alt} />

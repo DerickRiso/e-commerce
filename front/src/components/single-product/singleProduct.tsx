@@ -5,7 +5,7 @@ export function SingleProduct() {
                 <p>Home - Shop -</p>
                 <p>Sofa</p>
             </div>
-
+            
             <div className="single-product-view">
                 <div>
                     <img src="" alt="" />

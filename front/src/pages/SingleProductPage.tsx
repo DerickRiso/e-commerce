@@ -13,7 +13,7 @@ export function SingleProduct() {
         <div className="SingleProduct">
             <Header />
 
-            
+            <SingleProduct />
             <Products showTitle={true} title={"Related Products"} />
             <ShopNav pages={false} button={true}/>
             <Footer />

@@ -10,17 +10,17 @@ import { SingleProduct } from './pages/SingleProductPage';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <App />
   },
   {
     path: "/shop",
     element: <ShopPage />
   },
-  {
-    path: `/shop/:id`,
-    element: <SingleProduct />
-  }
+  // {
+  //   path: `/:id`,
+  //   element: <SingleProduct />
+  // }
 ])
 
 const root = ReactDOM.createRoot(

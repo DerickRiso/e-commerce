@@ -12,7 +12,7 @@ export function Nav() {
         <nav>
             <ul>
                 <li>
-                    <a href="" onClick={() => {navigateTo("/")}}>Home</a>
+                    <a href="" onClick={() => {navigateTo("/home")}}>Home</a>
                 </li>
                 <li>
                     <a href="" onClick={() => {navigateTo("/shop")}}>Shop</a>
