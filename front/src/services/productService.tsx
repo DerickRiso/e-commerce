@@ -25,3 +25,14 @@ export async function getProducts(url: string) {
   const products: Product[] = data;
   return products;
 }
+
+export async function getSingleProduct(id: string) {
+  const response = await axios.get(`http://localhost:3001/products/${id}`);
+
+  return response.data;
+}
+
+export async function createProductObject(id: string) {
+  const products = await getSingleProduct(id);
+  return products;
+}

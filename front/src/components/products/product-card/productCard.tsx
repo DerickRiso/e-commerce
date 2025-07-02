@@ -1,21 +1,29 @@
-import { Categorie } from "../../../services/productService";
+import { useNavigate } from "react-router-dom";
+import { Categorie, Product } from "../../../services/productService";
 import "./product-card.css";
 
-type ProductCardProps = {
-    img: string,
-    alt: string,
-    title: string,
-    description: string,
-    price: number,
-    new: boolean,
-    sale: number,
-    categorie: Categorie
-}
+// type ProductCardProps = {
+//     img: string,
+//     alt: string,
+//     title: string,
+//     description: string,
+//     price: number,
+//     new: boolean,
+//     sale: number,
+//     categorie: Categorie
+// }
 
-export function ProductCard(props: ProductCardProps) {
+export function ProductCard(props: Product) {
+
+    const navigate = useNavigate();
+    function navigateTo(path: string) {
+        navigate(`${path}`);
+    }
 
     return (
-        <aside className="product-card">
+        <aside className="product-card" onClick={() => {
+            navigateTo(`/shop/${props.id}`)
+        }}>
             {props.new && <span>New</span>}
             <img src={props.img} alt={props.alt} />
             <div className="title">
@@ -24,7 +32,9 @@ export function ProductCard(props: ProductCardProps) {
             </div>
             <div className="prices">
                 {/* Caso haja promoção, mostra o valor menor */}
-                {props.price !== props.sale && <p><strong>R${props.sale}</strong></p>}
+                {props.price !== props.sale && 
+                    <p><strong>R${props.sale}
+                </strong></p>}
                 {props.price !== props.sale ? (
                     <p className="risked">R${props.price}</p>
                 ) : (

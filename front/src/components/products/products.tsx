@@ -5,7 +5,8 @@ import "./products.css";
 import img from "../../assets/dining.png";
 
 type ProductsElementsProps = {
-    title: boolean
+    showTitle: boolean,
+    title: string
 }
 
 export function Products(props: ProductsElementsProps) {
@@ -20,12 +21,13 @@ export function Products(props: ProductsElementsProps) {
 
     return (
         <section className="products">
-            {props.title && <h2>Our Products</h2>}
+            {props.title && <h2>{props.title}</h2>}
 
             <div className="grid-container">
                 {products.map(product => (
                     <ProductCard
                         key={product.id}
+                        id={product.id}
                         img={product.img}
                         categorie={product.categorie}
                         alt={product.alt}

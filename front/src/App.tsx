@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      <Products title={true} />
+      <Products title={"Our Products"} showTitle={true}/>
       <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />

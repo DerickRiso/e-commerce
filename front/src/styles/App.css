@@ -1,4 +1,4 @@
-.App, .ShopPage {
+.App, .ShopPage, .SingleProduct {
     display: flex;
     flex-direction: column;
     align-items: center;

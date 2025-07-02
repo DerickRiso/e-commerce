@@ -14,10 +14,8 @@ export function ShopPage() {
             <Header />
             <BannerShop />
             <Filter />
-            <Products title={false} />
+            <Products showTitle={false} title={""}/>
             <ShopNav pages={true} button={false}/>
-            
-            
             <Features />
             <Footer />
         </div>

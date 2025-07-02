@@ -2,11 +2,8 @@ import filter from "../../assets/icons/filter.png";
 import block from "../../assets/icons/block.png";
 import list from "../../assets/icons/list.png";
 import "./filter.css"
-import { useState } from "react";
 
 export function Filter() {
-
-    
 
     return (
         <div className="filter">
@@ -33,11 +30,14 @@ export function Filter() {
                     <option value="16">16</option>
                 </select>
                 <p>Sort By</p>
-                <select name="sort-products" id="sort-products">
+                <select
+                    name="sort-products" 
+                    id="sort-products" 
+                >
                     <option value="All">All</option>
-                    <option value="Dining">Dining</option>
-                    <option value="Living">Living</option>
-                    <option value="Bedroom">Bedroom</option>
+                    <option value="dining">Dining</option>
+                    <option value="diving">Living</option>
+                    <option value="bedroom">Bedroom</option>
                 </select>
             </div>
         </div>
