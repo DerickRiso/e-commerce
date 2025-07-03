@@ -11,6 +11,12 @@ export class CreateProductDTO {
     @IsString()
     description: string;
 
+    @IsString()
+    longDescription: string;
+
+    @IsString()
+    color: string;
+
     @IsBoolean()
     new: boolean;
 
