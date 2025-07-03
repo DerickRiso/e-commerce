@@ -1,0 +1,25 @@
+import { IsBoolean, IsNumber, isString, IsString } from "class-validator";
+
+
+export class CreateProductDTO {
+    @IsString()
+    alt: string;
+
+    @IsString()
+    categorie: string;
+
+    @IsString()
+    description: string;
+
+    @IsBoolean()
+    new: boolean;
+
+    @IsString()
+    title: string;
+
+    @IsNumber()
+    price: number;
+
+    @IsNumber()
+    sale: number;
+}
