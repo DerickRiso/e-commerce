@@ -14,7 +14,7 @@ export function SingleProduct() {
             <Header />
 
             <SingleProduct />
-            <Products showTitle={true} title={"Related Products"} />
+            <Products showTitle={true} title={"Related Products"} limit={4}/>
             <ShopNav pages={false} button={true}/>
             <Footer />
         </div>

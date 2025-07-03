@@ -19,6 +19,13 @@ export class ProductService {
         return this.productRepository.find();
     }
 
+    async getPaginated(limit: number) {
+        return this.productRepository.find({
+            skip : 0,
+            take: limit,
+        });
+    }
+
     async findOne(id: string) {
         return this.productRepository.findOne({
             where: { id: Number(id) }

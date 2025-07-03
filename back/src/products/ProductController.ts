@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
 import { ProductService } from "./ProductsService";
 import { CreateProductDTO } from "./dto/CreateProductDTO";
 import { Products } from "./ProductEntity";
+import { skip } from "node:test";
 
 @Controller('products')
 export class ProductsController {
@@ -15,6 +16,13 @@ export class ProductsController {
     @Get()
     async list() {
         return this.productsService.list();
+    }
+
+    @Get('paginated')
+    async getPaginated(
+        @Query('limit') limit: number = 8
+    ) {
+        return this.productsService.getPaginated(limit);
     }
 
     @Get(":id")

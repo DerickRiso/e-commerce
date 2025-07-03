@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      <Products title={"Our Products"} showTitle={true}/>
+      <Products title={"Our Products"} showTitle={true} limit={8}/>
       <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />

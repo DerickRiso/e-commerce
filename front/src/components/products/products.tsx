@@ -7,18 +7,19 @@ const api = process.env.REACT_APP_API;
 
 type ProductsElementsProps = {
     showTitle: boolean,
-    title: string
+    title: string,
+    limit: number
 }
 
 export function Products(props: ProductsElementsProps) {
 
-    // Converte a response em array de objetos
     const [products, setProducts] = useState<Product[]>([]);
     useEffect(() => {
-        getProducts(`${api}/products`).then((data) => {
+        // Define o limit com props
+        getProducts(`${api}/products/paginated?limit=${props.limit}`).then((data) => {
             setProducts(data);
         });
-    }, []);
+    }, [props.limit]);
 
     return (
         <section className="products">
