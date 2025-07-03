@@ -14,7 +14,7 @@ export function ProductCard(props: Product) {
             navigateTo(`/${props.id}`)
         }}>
             {props.new && <span>New</span>}
-            <img src={props.img} alt={props.alt} />
+            <img src={props.image} alt={props.alt} />
             <div className="title">
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
