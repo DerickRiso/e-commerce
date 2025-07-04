@@ -31,6 +31,7 @@ export function SingleProductPage() {
                 id={infoProduct.id}
                 title={infoProduct.title}
                 price={infoProduct.price}
+                sale={infoProduct.sale}
                 description={infoProduct.description}
                 longDescription={infoProduct.longDescription}
                 size={infoProduct.size}
