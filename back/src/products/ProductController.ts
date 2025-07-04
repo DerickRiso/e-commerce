@@ -30,8 +30,11 @@ export class ProductsController {
         return this.productsService.findOne(id);
     }
 
-    @Get("/category/:categorie")
-    async findByCategorie(@Param('categorie') categorie: string) {
-        return this.productsService.findByCategorie(categorie);
+    @Get(":categorie/paginated")
+    async findByCategorie(
+        @Query('limit') limit: number = 2,
+        @Param('categorie') categorie: string
+    ) {
+        return this.productsService.findByCategorie(categorie, limit);
     }
 }

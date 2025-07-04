@@ -1,0 +1,90 @@
+/* Topo */
+.single-product .top {
+    display: flex;
+    width: 99vw;
+    height: 100px;
+    padding: 0px 150px;
+    background-color: #F9F1E7;
+    align-items: center;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    gap: 10px;
+}
+
+/* Imagens */
+.single-product-view{
+    display: flex;
+}
+
+.single-product-image {
+    width: 50%;
+    border: black solid 1px;
+}
+
+/* Titulo */
+.product-info .product-top {
+    padding: 20px;
+}
+
+.product-info .product-top h3 {
+    font-size: 2.8em;
+    font-weight: 400;
+}
+
+.product-info .product-top p:first-of-type {
+    font-size: 1.9em;
+    color: #9F9F9F;
+}
+
+/* Size e Color */
+
+.product-info #size,
+.product-info #color {
+    padding: 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.product-info #size p,
+.product-info #color p {
+    color: #9F9F9F;
+    width: 100%;
+}
+
+/* Size */
+.product-info #size button {
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #F9F1E7;
+}
+
+/* Color */
+.product-info #color {
+    border: solid 1px red;
+}
+
+.product-info #color button {
+    padding: 14px;
+    border-radius: 50%;
+    border: none;
+    background-color: black;
+}
+
+.product-info #color button:nth-of-type(1) {
+    background-color: #816DFA;
+}
+
+.product-info #color button:nth-of-type(2) {
+    background-color: black;
+}
+
+.product-info #color button:nth-of-type(3) {
+    background-color: #B88E2F;
+}

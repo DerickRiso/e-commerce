@@ -10,8 +10,9 @@ export function ProductCard(props: Product) {
     }
 
     return (
-        <aside className="product-card" onClick={() => {
-            navigateTo(`/${props.id}`)
+        <aside className="product-card" 
+        onClick={() => {
+            navigateTo(`/shop/${props.id}`)
         }}>
             {props.new && <span>New</span>}
             <img src={props.image} alt={props.alt} />
@@ -19,15 +20,21 @@ export function ProductCard(props: Product) {
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
             </div>
+            
             <div className="prices">
                 {/* Caso haja promoção, mostra o valor menor */}
                 {props.price !== props.sale && 
-                    <p><strong>R${props.sale}
-                </strong></p>}
+                    <p>
+                        <strong>R${props.sale}</strong>
+                    </p>
+                }
+
                 {props.price !== props.sale ? (
                     <p className="risked">R${props.price}</p>
                 ) : (
-                    <p><strong>R${props.price}</strong></p>
+                    <p>
+                        <strong>R${props.price}</strong>
+                    </p>
                 )}
             </div>
         </aside>

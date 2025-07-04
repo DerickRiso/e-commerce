@@ -4,9 +4,7 @@ import './styles/index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { ShopPage } from './pages/ShopPage';
-import { SingleProduct } from './pages/SingleProductPage';
-
-
+import { SingleProductPage } from './pages/SingleProductPage';
 
 const router = createBrowserRouter([
   {
@@ -17,10 +15,10 @@ const router = createBrowserRouter([
     path: "/shop",
     element: <ShopPage />
   },
-  // {
-  //   path: `/:id`,
-  //   element: <SingleProduct />
-  // }
+  {
+    path: `/shop/:id`,
+    element: <SingleProductPage />
+  }
 ])
 
 const root = ReactDOM.createRoot(

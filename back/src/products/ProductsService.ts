@@ -32,9 +32,11 @@ export class ProductService {
         });
     }
 
-    async findByCategorie(categorie: string) {
+    async findByCategorie(categorie: string, limit: number) {
         return this.productRepository.find({
-            where: {categorie}
+            where: {categorie},
+            skip: 0,
+            take: limit,
         });
     }
  }
