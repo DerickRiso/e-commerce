@@ -8,13 +8,15 @@ import { Features } from './components/features/features';
 import { Footer } from './components/footer/footer';
 import { ShopNav } from './components/shop-nav/shopNav';
 
+const allApi = "products/paginated?limit=";
+
 function App() {
   return (
     <div className="App">
       <Header />
       <Banner />
       <Categories />
-      <Products title={"Our Products"} showTitle={true} limit={8}/>
+      <Products title={"Our Products"} showTitle={true} limit={8} path={allApi}/>
       <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />

@@ -8,13 +8,15 @@ import { Footer } from '../components/footer/footer';
 import { Filter } from '../components/filter/filter';
 import { ShopNav } from '../components/shop-nav/shopNav';
 
+const allApi = "products/paginated?limit="
+
 export function ShopPage() {
     return (
         <div className='ShopPage'>
             <Header />
             <BannerShop />
             <Filter />
-            <Products showTitle={false} title={""} limit={12}/>
+            <Products showTitle={false} title={""} limit={12} path={allApi}/>
             <ShopNav pages={true} button={false}/>
             <Features />
             <Footer />

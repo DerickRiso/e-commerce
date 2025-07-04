@@ -11,6 +11,7 @@ import { getSingleProduct } from "../services/productService";
 
 export function SingleProductPage() {
 
+    const { categorie } = useParams();
     const { id } = useParams();
 
     // Exibe os dados do banco quando o ID e api responderem
@@ -38,12 +39,13 @@ export function SingleProductPage() {
                 categorie={infoProduct.categorie}
                 tags={infoProduct.tags}
             />}
-
-            <Products
+    
+            {infoProduct && <Products
                 showTitle={true} 
                 title={"Related Products"} 
                 limit={4}
-            />
+                path={`products/${infoProduct.categorie}/paginated?limit=`}
+            />}
             <ShopNav pages={false} button={true}/>
             <Footer />
         </div>
