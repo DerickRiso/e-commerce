@@ -3,6 +3,7 @@ import linkedin from '../../assets/icons/linkedin.png';
 import x from '../../assets/icons/x.png';
 import facebook from '../../assets/icons/facebook.png';
 import arrow from '../../assets/icons/arrow.png';
+import { useState } from 'react';
 
 export type SingleProductProps = {
     id: number;
@@ -15,8 +16,31 @@ export type SingleProductProps = {
     categorie: string
     tags: string
 }
+const plus = document.getElementById('increase') as HTMLButtonElement
+const less = document.getElementById('decrease') as HTMLButtonElement;
+const show = document.getElementById('quant') as HTMLParagraphElement;
 
 export function SingleProduct(props: SingleProductProps) {
+
+    function setSize(event: React.MouseEvent<HTMLButtonElement>) {
+        const btns = document.querySelectorAll('#size button');
+        const target = event.target as HTMLButtonElement;
+
+        btns.forEach((btn) => {
+            btn.classList.remove('selected');
+        })
+        target.classList.add('selected')
+    }
+
+    const [val, setVal] = useState(0);
+
+    function increase() {
+        setVal((prev) => prev + 1);
+    }
+
+    function decrease() {
+        setVal((prev) => (prev > 0 ? prev - 1 : 0));
+    }
 
     return (
         <section className="single-product">
@@ -38,9 +62,9 @@ export function SingleProduct(props: SingleProductProps) {
 
                         <div id="size">
                             <p>Size</p>
-                            <button>L</button>
-                            <button>XL</button>
-                            <button>XS</button>
+                            <button onClick={setSize}>L</button>
+                            <button onClick={setSize}>XL</button>
+                            <button onClick={setSize}>XS</button>
                         </div>
 
                         <div id="color">
@@ -52,9 +76,9 @@ export function SingleProduct(props: SingleProductProps) {
 
                         <div className='action-buttons'>
                             <div className='increase-decrease'>
-                                <button>-</button>
-                                <p>0</p>
-                                <button>+</button>
+                                <button id='decrease' onClick={decrease}>-</button>
+                                <p id='quant'>{val}</p>
+                                <button id='increase' onClick={increase}>+</button>
                             </div>
                             <button>Add to Cart</button>
                             <button>+ Compare</button>

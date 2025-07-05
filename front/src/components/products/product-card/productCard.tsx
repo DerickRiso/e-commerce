@@ -9,12 +9,30 @@ export function ProductCard(props: Product) {
         navigate(`${path}`);
     }
 
+    function calcPercent() {
+        let res = 0
+        if(props.sale === props.price) {
+            return res;
+        } else {
+            let percent = Math.floor((props.sale / props.price) * 100);
+            res = 100 - percent;
+            return res;
+        }
+    }
+
     return (
         <aside className="product-card" 
         onClick={() => {
             navigateTo(`/shop/${props.id}`)
         }}>
-            {props.new && <span>New</span>}
+            
+            {calcPercent() > 0 && <span id="discount">
+                -{calcPercent()}%
+            </span>}
+            {props.new && <span id="new">
+                New
+            </span>}
+
             <img src={props.image} alt={props.alt} />
             <div className="title">
                 <h3>{props.title}</h3>

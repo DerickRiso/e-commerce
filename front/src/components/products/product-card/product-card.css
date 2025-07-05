@@ -4,6 +4,30 @@
     gap: 5px;
     background-color: #F4F5F7;
     width: 200px;
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::after {
+    content: "See details";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    background-color:rgba(0, 0, 0, 0.342);
+    position: absolute;
+    z-index: 10;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transition: 0.4s;
+    pointer-events: none;
+    filter: opacity(0);
+}
+
+.product-card:hover::after {
+    filter: opacity(1);
 }
 
 .product-card img {
@@ -29,16 +53,44 @@
     padding: 0px 10px;
 }
 
-.product-card span {
+.product-card #new {
+    display: flex;
+    justify-content: center;
     border-radius: 50%;
-    background-color: red;
+    background-color: #00a4b9;
+    position: absolute;
+    top: 5px;
+    left: 155px;
+    text-align: center;
     color: white;
-    padding: 10px;
-    display: none;
+    padding: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.8em;
+    transition: 0.4s;
 }
 
-.hidden {
-    display: none;
+.product-card #discount {
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #E97171;
+    position: absolute;
+    top: 5px;
+    left: 155px;
+    text-align: center;
+    color: white;
+    padding: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.8em;
+    transition: 0.4s;
+    z-index: 2;
+}
+
+.product-card:hover span,
+.product-card:hover #discount {
+    opacity: 0;
 }
 
 .risked {
