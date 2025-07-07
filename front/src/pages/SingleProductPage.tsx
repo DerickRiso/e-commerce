@@ -37,7 +37,13 @@ export function SingleProductPage() {
                 longDescription={infoProduct.longDescription}
                 size={infoProduct.size}
                 categorie={infoProduct.categorie}
-                tags={infoProduct.tags}
+                tag={infoProduct.tag}
+                image={infoProduct.image}
+                alt={infoProduct.alt}
+                miniImage1={infoProduct.miniImage1}
+                miniImage2={infoProduct.miniImage2}
+                miniImage3={infoProduct.miniImage3}
+                miniImage4={infoProduct.miniImage4}
             />}
     
             {infoProduct && <Products

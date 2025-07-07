@@ -39,9 +39,28 @@
 
 /* Imagens */
 .single-product-image {
+    display: flex;
     width: 550px;
     height: 500px;
-    border: black solid 1px;
+}
+
+.single-product-image #big-picture {
+    width: 85%;
+    height: 85%;
+    border-radius: 10px;
+}
+
+.single-product-image div {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+    gap: 20px;
+}
+
+.single-product-image div img {
+    width: 70px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* Titulo */

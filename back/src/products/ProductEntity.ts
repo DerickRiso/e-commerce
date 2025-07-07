@@ -17,17 +17,29 @@ export class Products {
     @Column()
     image: string;
 
+    @Column( {nullable: true} )
+    miniImage1: string;
+
+    @Column( {nullable: true} )
+    miniImage2: string;
+
+    @Column( {nullable: true} )
+    miniImage3: string;
+
+    @Column( {nullable: true} )
+    miniImage4: string;
+
     @Column()
     alt: string;
 
     @Column()
     description: string;
 
-    @Column( {nullable: true } )
-    longDescription?: string;
+    @Column()
+    longDescription: string;
 
-    @Column( {nullable: true } )
-    tag?: string;
+    @Column()
+    tag: string;
 
     @Column( {default: Size.XL} )
     size: Size;
@@ -35,7 +47,7 @@ export class Products {
     @Column()
     price: number;
 
-    @Column( {nullable: true } )
+    @Column()
     color: string;
 
     @Column()

@@ -1,9 +1,12 @@
-import { IsBoolean, IsNumber, isString, IsString } from "class-validator";
+import { ArrayMaxSize, ArrayMinSize, IsArray, IsBoolean, IsNumber, isString, IsString } from "class-validator";
 
 
 export class CreateProductDTO {
     @IsString()
     alt: string;
+
+    @IsString()
+    image: string;
 
     @IsString()
     categorie: string;

@@ -13,12 +13,15 @@ export type SingleProductProps = {
     description: string,
     longDescription: string,
     size: string,
-    categorie: string
-    tags: string
+    categorie: string,
+    tag: string,
+    alt: string,
+    image: string,
+    miniImage1: string,
+    miniImage2: string,
+    miniImage3: string,
+    miniImage4: string
 }
-const plus = document.getElementById('increase') as HTMLButtonElement
-const less = document.getElementById('decrease') as HTMLButtonElement;
-const show = document.getElementById('quant') as HTMLParagraphElement;
 
 export function SingleProduct(props: SingleProductProps) {
 
@@ -32,7 +35,7 @@ export function SingleProduct(props: SingleProductProps) {
         target.classList.add('selected')
     }
 
-        function setColor(event: React.MouseEvent<HTMLButtonElement>) {
+    function setColor(event: React.MouseEvent<HTMLButtonElement>) {
         const btns = document.querySelectorAll('#color button');
         const target = event.target as HTMLButtonElement;
 
@@ -52,16 +55,36 @@ export function SingleProduct(props: SingleProductProps) {
         setVal((prev) => (prev > 0 ? prev - 1 : 0));
     }
 
+    function selectImage(event: React.MouseEvent<HTMLImageElement>) {
+        const picture = document.getElementById('big-picture') as HTMLImageElement;
+        const clickedImage = event.target as HTMLImageElement;
+
+        const saveSrc = picture.src;
+        picture.src = clickedImage.src;
+        clickedImage.src = saveSrc;
+    }
+
     return (
         <section className="single-product">
             <div className='product'>
                 <div className="top">
-                    <p>Home <img src={arrow} /> Shop <img src={arrow} /> <span>{props.title}</span></p>
+                    <p>
+                        Home 
+                        <img src={arrow} /> 
+                        Shop 
+                        <img src={arrow} /> 
+                        <span>{props.title}</span></p>
                 </div>
                 
                 <div className="single-product-view">
                     <div className='single-product-image'>
-                        <img src="" alt="" />
+                        <div>
+                            <img src={props.miniImage1} onClick={selectImage} alt={props.alt} />
+                            <img src={props.miniImage2} onClick={selectImage} alt={props.alt} />
+                            <img src={props.miniImage3} onClick={selectImage} alt={props.alt} />
+                            <img src={props.miniImage4} onClick={selectImage} alt={props.alt} />
+                        </div>
+                        <img id='big-picture' src={props.image} alt={props.alt} />
                     </div>
                     <div className='product-info'>
                         <div className="product-top">
@@ -104,7 +127,7 @@ export function SingleProduct(props: SingleProductProps) {
                                 <dd>{props.categorie}</dd>
                                 <dt>Tags</dt>
                                 <dd>:</dd>
-                                <dd>{props.tags}</dd>
+                                <dd>{props.tag}</dd>
                                 <dt>Share</dt>
                                 <dd>:</dd>
                                 <dd>
@@ -131,7 +154,7 @@ export function SingleProduct(props: SingleProductProps) {
                     <h4>Description</h4>
                     <h4>Additional Information</h4>
                 </div>
-                <p>{props.longDescription} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam veniam, ipsum ut molestias dolorem, inventore unde suscipit labore, hic possimus quos voluptate magnam dolores non veritatis maxime quibusdam similique accusantium.</p>
+                <p>{props.longDescription}</p>
             </div>
         </section>
     )
