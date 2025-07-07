@@ -32,6 +32,16 @@ export function SingleProduct(props: SingleProductProps) {
         target.classList.add('selected')
     }
 
+        function setColor(event: React.MouseEvent<HTMLButtonElement>) {
+        const btns = document.querySelectorAll('#color button');
+        const target = event.target as HTMLButtonElement;
+
+        btns.forEach((btn) => {
+            btn.classList.remove('selected-color');
+        })
+        target.classList.add('selected-color')
+    }
+
     const [val, setVal] = useState(0);
 
     function increase() {
@@ -69,9 +79,9 @@ export function SingleProduct(props: SingleProductProps) {
 
                         <div id="color">
                             <p>Color</p>
-                            <button></button>
-                            <button></button>
-                            <button></button>
+                            <button onClick={setColor}></button>
+                            <button onClick={setColor}></button>
+                            <button onClick={setColor}></button>
                         </div>
 
                         <div className='action-buttons'>
