@@ -16,7 +16,13 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      <Products title={"Our Products"} showTitle={true} limit={8} path={allApi}/>
+      <Products 
+        title={"Our Products"} 
+        showTitle={true} 
+        limit={8} 
+        path={allApi}
+        pagination={false}
+      />
       <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />

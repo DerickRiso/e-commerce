@@ -11,6 +11,7 @@ type ProductsElementsProps = {
     title: string,
     limit: number,
     path: string
+    pagination: boolean
 }
 
 export function Products(props: ProductsElementsProps) {
@@ -23,7 +24,6 @@ export function Products(props: ProductsElementsProps) {
         getProducts(fullPath).then((res) => {
             setProducts(res.data);
             setTotalPages(res.totalPage);
-            
         });
     }, [props.path, props.limit, currentPage, totalPages]);
 
@@ -58,10 +58,19 @@ export function Products(props: ProductsElementsProps) {
                     />
                 ))}
             </div>
+
+            {props.pagination && <div className="pages">
+                <div>
+                    <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                    <button>{currentPage < totalPages? currentPage-1 : ""}</button>
+                    <button>{currentPage}</button>
+                    <button>{currentPage < totalPages? currentPage+1 : ""}</button>
+                    <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
+                </div>
+            </div>}
+            
             <div className="pagination">
-                <button onClick={prevPage} disabled={currentPage === 1}>Anterior</button>
                 <span>Página {currentPage} de {totalPages}</span>
-                <button onClick={nextPage} disabled={currentPage === totalPages}>Próxima</button>
             </div>
         </section>
     )

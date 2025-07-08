@@ -52,6 +52,7 @@ export function SingleProductPage() {
                 title={"Related Products"}
                 limit={4}
                 path={`products/${infoProduct.categorie}`}
+                pagination={false}
             />}
             <ShopNav pages={false} button={true}/>
             <Footer />

@@ -21,6 +21,7 @@ export function ShopPage() {
                 title={""} 
                 limit={8} 
                 path={allApi}
+                pagination={true}
             />
             <ShopNav pages={true} button={false}/>
             <Features />
