@@ -34,8 +34,9 @@ export class ProductsController {
     @Get(":categorie/paginated")
     async findByCategorie(
         @Query('limit') limit: number = 2,
+        @Query('page') page: number = 1,
         @Param('categorie') categorie: string
     ) {
-        return this.productsService.findByCategorie(categorie, limit);
+        return this.productsService.findByCategorie(categorie, limit, page);
     }
 }

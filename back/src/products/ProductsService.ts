@@ -38,11 +38,17 @@ export class ProductService {
         });
     }
 
-    async findByCategorie(categorie: string, limit: number) {
-        return this.productRepository.find({
+    async findByCategorie(categorie: string, limit: number, page: number) {
+        const [data, total] = await this.productRepository.findAndCount({
             where: {categorie},
-            skip: 0,
+            skip : (page - 1) * limit,
             take: limit,
         });
+        return {
+            data,
+            total,
+            page,
+            totalPage: Math.ceil(total / limit)
+        }
     }
- }
+}

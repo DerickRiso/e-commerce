@@ -24,6 +24,7 @@ export function Products(props: ProductsElementsProps) {
         getProducts(fullPath).then((res) => {
             setProducts(res.data);
             setTotalPages(res.totalPage);
+            console.log(res.data);
         });
     }, [props.path, props.limit, currentPage, totalPages]);
 
@@ -69,9 +70,9 @@ export function Products(props: ProductsElementsProps) {
                 </div>
             </div>}
             
-            <div className="pagination">
+            {props.pagination && <div className="pagination">
                 <span>Página {currentPage} de {totalPages}</span>
-            </div>
+            </div>}
         </section>
     )
 }
