@@ -20,9 +20,10 @@ export class ProductsController {
 
     @Get('paginated')
     async getPaginated(
-        @Query('limit') limit: number = 8
+        @Query('limit') limit: number = 8,
+        @Query('page') page: number = 1
     ) {
-        return this.productsService.getPaginated(limit);
+        return this.productsService.getPaginated(limit, page);
     }
 
     @Get(":id")

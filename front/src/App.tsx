@@ -8,7 +8,7 @@ import { Features } from './components/features/features';
 import { Footer } from './components/footer/footer';
 import { ShopNav } from './components/shop-nav/shopNav';
 
-const allApi = "products/paginated?limit=";
+const allApi = "products";
 
 function App() {
   return (

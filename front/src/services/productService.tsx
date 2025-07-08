@@ -23,8 +23,8 @@ export type Product = {
 export async function getProducts(url: string) {
   const response = await axios.get(url);
   const data = response.data;
-  const products: Product[] = data;
-  return products;
+  //const products: Product[] = data.data;
+  return data;
 }
 
 export async function getSingleProduct(id: string) {

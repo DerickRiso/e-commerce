@@ -19,11 +19,17 @@ export class ProductService {
         return this.productRepository.find();
     }
 
-    async getPaginated(limit: number) {
-        return this.productRepository.find({
-            skip : 0,
+    async getPaginated(limit: number, page: number) {
+        const [data, total] = await this.productRepository.findAndCount({
+            skip : (page - 1) * limit,
             take: limit,
         });
+        return {
+            data,
+            total,
+            page,
+            totalPage: Math.ceil(total / limit)
+        }
     }
 
     async findOne(id: string) {

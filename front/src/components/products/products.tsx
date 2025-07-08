@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { getProducts, Product } from "../../services/productService";
 import "./products.css";
 
-let categorie = "";
 const api = process.env.REACT_APP_API;
-const categorieApi = `products/${categorie}/paginated?limit=`;
 const allApi = "/products/paginated?limit="
 
 type ProductsElementsProps = {
@@ -15,23 +13,37 @@ type ProductsElementsProps = {
     path: string
 }
 
-
 export function Products(props: ProductsElementsProps) {
-
     const [products, setProducts] = useState<Product[]>([]);
+    const [currentPage, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+
     useEffect(() => {
-        // Define o limit com props
-        getProducts(`${api}/${props.path}${props.limit}`).then((data) => {
-            setProducts(data);
+        const fullPath = `${api}/${props.path}/paginated?limit=${props.limit}&page=${currentPage}`;
+        getProducts(fullPath).then((res) => {
+            setProducts(res.data);
+            setTotalPages(res.totalPage);
+            
         });
-    }, [props.limit]);
+    }, [props.path, props.limit, currentPage, totalPages]);
+
+    function nextPage() {
+        if(currentPage === totalPages) {
+            return
+        }
+        setPage((prev) => prev + 1)
+    }
+
+    function prevPage() {
+        setPage((prev) => Math.max(prev - 1, 1))
+    }
 
     return (
         <section className="products">
             {props.title && <h2>{props.title}</h2>}
 
             <div className="grid-container">
-                {products.map(product => (
+                {products && products.map(product => (
                     <ProductCard
                         key={product.id}
                         id={product.id}
@@ -45,6 +57,11 @@ export function Products(props: ProductsElementsProps) {
                         sale={product.sale}
                     />
                 ))}
+            </div>
+            <div className="pagination">
+                <button onClick={prevPage} disabled={currentPage === 1}>Anterior</button>
+                <span>Página {currentPage} de {totalPages}</span>
+                <button onClick={nextPage} disabled={currentPage === totalPages}>Próxima</button>
             </div>
         </section>
     )

@@ -11,16 +11,17 @@ import { getSingleProduct } from "../services/productService";
 
 export function SingleProductPage() {
 
-    const { categorie } = useParams();
     const { id } = useParams();
 
     // Exibe os dados do banco quando o ID e api responderem
     const [infoProduct, setInfoProduct] = useState<SingleProductProps>();
     useEffect(() => {
-            if (id) {
-                getSingleProduct(id).then((data) => {
+        if (id) {
+            getSingleProduct(id).then((data) => {
                 setInfoProduct(data);
-            });
+            }); 
+        } else {
+            console.warn("Dados não encontrados")
         };  
     }, [id]);
 
@@ -47,10 +48,10 @@ export function SingleProductPage() {
             />}
     
             {infoProduct && <Products
-                showTitle={true} 
-                title={"Related Products"} 
+                showTitle={true}
+                title={"Related Products"}
                 limit={4}
-                path={`products/${infoProduct.categorie}/paginated?limit=`}
+                path={`products/${infoProduct.categorie}`}
             />}
             <ShopNav pages={false} button={true}/>
             <Footer />
