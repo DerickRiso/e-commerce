@@ -10,24 +10,33 @@ type ProductsElementsProps = {
     showTitle: boolean,
     title: string,
     limit: number,
-    path: string
-    pagination: boolean
+    path: string,
+    pagination: boolean,
+    show: string
 }
 
 export function Products(props: ProductsElementsProps) {
     const [products, setProducts] = useState<Product[]>([]);
     const [currentPage, setPage] = useState(1);
+    const [limit, setLimit] = useState(Number(props.show))
     const [totalPages, setTotalPages] = useState(1);
 
+    // Exibe os produtos
     useEffect(() => {
-        const fullPath = `${api}/${props.path}/paginated?limit=${props.limit}&page=${currentPage}`;
+        const fullPath = `${api}/${props.path}/paginated?limit=${limit}&page=${currentPage}`;
+
         getProducts(fullPath).then((res) => {
             setProducts(res.data);
             setTotalPages(res.totalPage);
-            console.log(res.data);
         });
-    }, [props.path, props.limit, currentPage, totalPages]);
+    }, [props.path, limit, currentPage]);
 
+    // Muda o limit e exibe
+    useEffect(() => {
+        setLimit(Number(props.show))
+    }, [props.show])
+
+    // Muda de página
     function nextPage() {
         if(currentPage === totalPages) {
             return
@@ -38,6 +47,10 @@ export function Products(props: ProductsElementsProps) {
     function prevPage() {
         setPage((prev) => Math.max(prev - 1, 1))
     }
+    
+    let view1 = true
+    let view2 = true
+    let view3 = true
 
     return (
         <section className="products">
@@ -63,9 +76,25 @@ export function Products(props: ProductsElementsProps) {
             {props.pagination && <div className="pages">
                 <div>
                     <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
-                    <button>{currentPage < totalPages? currentPage-1 : ""}</button>
-                    <button>{currentPage}</button>
-                    <button>{currentPage < totalPages? currentPage+1 : ""}</button>
+
+                    {view1 && <button onClick={() => {
+                        currentPage > 1? setPage(currentPage - 1) : setPage(currentPage)
+                    }}>
+                        {currentPage < totalPages? currentPage : view1 = false}
+                    </button>}
+
+                    {view2 && <button onClick={() => {
+                        currentPage < totalPages? setPage(currentPage + 1) : setPage(currentPage)
+                    }}>
+                        {currentPage < totalPages? currentPage+1 : view2 = false}
+                    </button>}
+
+                    {view3 && <button onClick={() => {
+                        currentPage < totalPages? setPage(currentPage + 1) : setPage(currentPage)
+                    }}>
+                        {currentPage < totalPages? currentPage+2 : view3 = false}
+                    </button>}
+
                     <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
                 </div>
             </div>}

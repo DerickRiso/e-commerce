@@ -4,12 +4,18 @@ import list from "../../assets/icons/list.png";
 import "./filter.css"
 import { useState } from "react";
 
-export function Filter() {
+type FilterSelectProps= {
+    value: string;
+    onChange: (newValue: string) => void;
+}
 
-    const [filterValue, setFilterValue] = useState("all");
+export function Filter( {value, onChange }: FilterSelectProps) {
+
+    const [showValue, setShowValue] = useState("16");
 
     const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setFilterValue(e.target.value);
+        setShowValue(e.target.value);
+        onChange(showValue);
     };
 
     return (
@@ -19,7 +25,7 @@ export function Filter() {
                     <a>
                         <img src={filter} />
                         Filter
-                        <select id="filter" onChange={filterChange}>
+                        <select id="filter" >
                             <option value="all">All</option>
                             <option value="dining">Dining</option>
                             <option value="diving">Living</option>
@@ -39,8 +45,7 @@ export function Filter() {
             </div>
             <div className="sort">
                 <p>Show</p>
-                <select name="count-products" id="count-products">
-                    <option value="4">4</option>
+                <select value={value} onChange={filterChange} id="count-products">
                     <option value="8">8</option>
                     <option value="16">16</option>
                     <option value="24">24</option>

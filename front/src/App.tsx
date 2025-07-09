@@ -22,6 +22,7 @@ function App() {
         limit={8} 
         path={allApi}
         pagination={false}
+        show={"8"}
       />
       <ShopNav pages={false} button={true}/>
       <Features />
