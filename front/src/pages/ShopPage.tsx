@@ -13,12 +13,22 @@ const allApi = "products"
 export function ShopPage() {
 
     const [show, setShow] = useState("8");
+    const [filter, setFilter] = useState("all")
 
     return (
         <div className='ShopPage'>
             <Header />
             <BannerShop />
-            <Filter value={show} onChange={setShow}/>
+            <Filter
+                value={show} 
+                filter={filter} 
+                onChange={(newValue) => {
+                    setShow(newValue);
+                }}
+                onSelect={(newSelect) => {
+                    setFilter(newSelect);
+                }}
+            />
             <Products 
                 showTitle={false} 
                 title={""} 
@@ -26,6 +36,7 @@ export function ShopPage() {
                 path={allApi}
                 pagination={true}
                 show={show}
+                cat={filter}
             />
             <ShopNav pages={true} button={false}/>
             <Features />

@@ -1,4 +1,4 @@
-import filter from "../../assets/icons/filter.png";
+import filt from "../../assets/icons/filter.png";
 import block from "../../assets/icons/block.png";
 import list from "../../assets/icons/list.png";
 import "./filter.css"
@@ -6,16 +6,27 @@ import { useState } from "react";
 
 type FilterSelectProps= {
     value: string;
+    filter: string;
     onChange: (newValue: string) => void;
+    onSelect: (newSelect: string) => void
 }
 
-export function Filter( {value, onChange }: FilterSelectProps) {
+export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps) {
 
-    const [showValue, setShowValue] = useState("16");
+    const [showValue, setShowValue] = useState(value || "16");
+    const [filterValue, setFilterValue] = useState(filter || "all");
 
     const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setShowValue(e.target.value);
-        onChange(showValue);
+        const newValue = e.target.value;
+        setShowValue(newValue);
+        // Mudança aqui muda o filtro (não sei se é bug)
+        onChange(newValue);
+    };
+
+    const filterSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newFilter = e.target.value;
+        setFilterValue(newFilter);
+        onSelect(newFilter);
     };
 
     return (
@@ -23,13 +34,15 @@ export function Filter( {value, onChange }: FilterSelectProps) {
             <div>
                 <div className="view">
                     <a>
-                        <img src={filter} />
+                        <img src={filt} />
                         Filter
-                        <select id="filter" >
+                        <select id="filter" onChange={filterSelect}>
                             <option value="all">All</option>
                             <option value="dining">Dining</option>
-                            <option value="diving">Living</option>
+                            <option value="living">Living</option>
                             <option value="bedroom">Bedroom</option>
+                            <option value="new">New</option>
+                            <option value="sale">Sale</option>
                         </select>
                     </a>
                     <a href="">

@@ -54,6 +54,7 @@ export function SingleProductPage() {
                 path={`products/${infoProduct.categorie}`}
                 pagination={false}
                 show={"4"}
+                cat={""}
             />}
             <ShopNav pages={false} button={true}/>
             <Footer />

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import { ShopPage } from './pages/ShopPage';
 import { SingleProductPage } from './pages/SingleProductPage';
 
+
 const router = createBrowserRouter([
   {
     path: "/home",

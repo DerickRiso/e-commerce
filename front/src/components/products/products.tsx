@@ -4,7 +4,6 @@ import { getProducts, Product } from "../../services/productService";
 import "./products.css";
 
 const api = process.env.REACT_APP_API;
-const allApi = "/products/paginated?limit="
 
 type ProductsElementsProps = {
     showTitle: boolean,
@@ -13,6 +12,7 @@ type ProductsElementsProps = {
     path: string,
     pagination: boolean,
     show: string
+    cat: string
 }
 
 export function Products(props: ProductsElementsProps) {
@@ -21,15 +21,38 @@ export function Products(props: ProductsElementsProps) {
     const [limit, setLimit] = useState(Number(props.show))
     const [totalPages, setTotalPages] = useState(1);
 
+    let fullPath = `${api}/${props.path}/paginated?limit=${limit}&page=${currentPage}`;
+
+    // Verifica os filtros e modifica a URL
+    switch(props.cat) {
+        case "dining":
+            fullPath = `${api}/products/dining/paginated?limit=${limit}&page=${currentPage}`;
+        break;
+
+        case "living":
+            fullPath = `${api}/products/living/paginated?limit=${limit}&page=${currentPage}`;
+        break;
+
+        case "bedroom":
+            fullPath = `${api}/products/bedroom/paginated?limit=${limit}&page=${currentPage}`;
+        break;
+
+        case "new":
+            fullPath = `${api}/products/new/paginated?limit=${limit}&page=${currentPage}`;
+        break;
+
+        case "sale":
+            fullPath = `${api}/products/sale/paginated?limit=${limit}&page=${currentPage}`;
+        break;
+    }
+
     // Exibe os produtos
     useEffect(() => {
-        const fullPath = `${api}/${props.path}/paginated?limit=${limit}&page=${currentPage}`;
-
         getProducts(fullPath).then((res) => {
             setProducts(res.data);
             setTotalPages(res.totalPage);
         });
-    }, [props.path, limit, currentPage]);
+    }, [props.path, limit, currentPage, props.cat]);
 
     // Muda o limit e exibe
     useEffect(() => {
@@ -47,10 +70,6 @@ export function Products(props: ProductsElementsProps) {
     function prevPage() {
         setPage((prev) => Math.max(prev - 1, 1))
     }
-    
-    let view1 = true
-    let view2 = true
-    let view3 = true
 
     return (
         <section className="products">
@@ -75,25 +94,29 @@ export function Products(props: ProductsElementsProps) {
 
             {props.pagination && <div className="pages">
                 <div>
-                    <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                    <button 
+                        onClick={prevPage} 
+                        disabled={currentPage === 1}>
+                        Previous
+                    </button>
 
-                    {view1 && <button onClick={() => {
+                    <button onClick={() => {
                         currentPage > 1? setPage(currentPage - 1) : setPage(currentPage)
                     }}>
-                        {currentPage < totalPages? currentPage : view1 = false}
-                    </button>}
+                        {currentPage < totalPages? currentPage : ""}
+                    </button>
 
-                    {view2 && <button onClick={() => {
+                    <button onClick={() => {
                         currentPage < totalPages? setPage(currentPage + 1) : setPage(currentPage)
                     }}>
-                        {currentPage < totalPages? currentPage+1 : view2 = false}
-                    </button>}
+                        {currentPage < totalPages? currentPage+1 : ""}
+                    </button>
 
-                    {view3 && <button onClick={() => {
+                    <button onClick={() => {
                         currentPage < totalPages? setPage(currentPage + 1) : setPage(currentPage)
                     }}>
-                        {currentPage < totalPages? currentPage+2 : view3 = false}
-                    </button>}
+                        {currentPage < totalPages? currentPage+2 : ""}
+                    </button>
 
                     <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
                 </div>

@@ -23,6 +23,7 @@ function App() {
         path={allApi}
         pagination={false}
         show={"8"}
+        cat={"all"}
       />
       <ShopNav pages={false} button={true}/>
       <Features />
