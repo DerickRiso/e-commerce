@@ -52,13 +52,28 @@ export class ProductService {
         }
     }
 
-    async findByIsNew(isNew: boolean, limit: number, page: number) {
-        
+    async findByIsNew(isNew: boolean, limit: number, page: number) { 
         const [data, total] = await this.productRepository.findAndCount({
             where: {isNew},
             skip : (page - 1) * limit,
             take: limit,
         });
+        return {
+            data,
+            total,
+            page,
+            totalPage: Math.ceil(total / limit)
+        }
+    }
+
+    async findBySale(limit: number, page: number) {
+        const [data, total] = await this.productRepository
+            .createQueryBuilder("product")
+            .where("product.sale < product.price")
+            .skip((page - 1) * limit)
+            .take(limit)
+            .getManyAndCount();
+
         return {
             data,
             total,

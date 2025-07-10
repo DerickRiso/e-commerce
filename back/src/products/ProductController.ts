@@ -12,6 +12,14 @@ export class ProductsController {
         return this.productsService.create(CreateProductDTO)
     }
 
+    @Get("sale/paginated")
+    async findBySale(
+        @Query('limit') limit: number = 2,
+        @Query('page') page: number = 1,
+    ) {
+        return this.productsService.findBySale(limit, page);
+    }
+
     @Get()
     async list() {
         return this.productsService.list();
@@ -48,4 +56,6 @@ export class ProductsController {
         const isNewBoolean = isNew === "true";
         return this.productsService.findByIsNew(isNewBoolean, limit, page);
     }
+
+  
 }
