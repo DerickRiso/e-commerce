@@ -5,7 +5,6 @@ type CardCategorieProps = {
     alt: string;
     title: string;
     category: string
-    
 }
 
 export function CardCategorie(props: CardCategorieProps) {
@@ -18,8 +17,7 @@ export function CardCategorie(props: CardCategorieProps) {
         <article 
             className="categorie"
             onClick={() => {
-                navigateTo('/shop');
-
+                navigateTo((`/shop?category=${props.category}`));
             }}
         >
             <img src={props.img} alt={props.alt} />

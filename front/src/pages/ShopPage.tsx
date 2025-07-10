@@ -7,13 +7,18 @@ import { Features } from '../components/features/features';
 import { Footer } from '../components/footer/footer';
 import { Filter } from '../components/filter/filter';
 import { ShopNav } from '../components/shop-nav/shopNav';
+import { useSearchParams } from 'react-router-dom';
 
 const allApi = "products"
 
 export function ShopPage() {
 
+    // Usa uma query para definir categoria, se não tiver define all
+    const [searchParams] = useSearchParams()
+    const category = searchParams.get("category");
+
     const [show, setShow] = useState("8");
-    const [filter, setFilter] = useState("all")
+    const [filter, setFilter] = useState(category || "all");
 
     return (
         <div className='ShopPage'>
