@@ -1,0 +1,14 @@
+.features {
+    height: 270px;
+    width: 100%;
+    background-color: #FAF3EA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.features ul {
+    display: flex;
+    justify-content: center;
+    gap: 8vw;
+}

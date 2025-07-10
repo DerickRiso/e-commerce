@@ -1,0 +1,30 @@
+.categories-section, .categories-section div {
+    display: flex;
+    text-align: center;
+}
+
+.categories-section {
+    flex-direction: column;
+}
+
+.categories-section h2 {
+    padding: 60px 0px;
+}
+
+.categories-section div {
+    gap: 10px;
+}
+
+.categories-section div .categorie {
+    gap: 10px;
+    cursor: pointer;
+}
+
+.categories-section div .categorie p {
+    font-size: 1.3em;
+}
+
+.categories-section div .categorie img{
+    border-radius: 10px;
+    width: 28vw;
+}
