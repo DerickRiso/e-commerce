@@ -38,7 +38,7 @@ export function Products(props: ProductsElementsProps) {
         break;
 
         case "new":
-            fullPath = `${api}/products/new/paginated?limit=${limit}&page=${currentPage}`;
+            fullPath = `${api}/products/new/true/paginated?limit=${limit}&page=${currentPage}`;
         break;
 
         case "sale":
@@ -86,7 +86,7 @@ export function Products(props: ProductsElementsProps) {
                         title={product.title}
                         description={product.description}
                         price={product.price}
-                        new={product.new}
+                        isNew={product.isNew}
                         sale={product.sale}
                     />
                 ))}

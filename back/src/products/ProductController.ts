@@ -38,4 +38,14 @@ export class ProductsController {
     ) {
         return this.productsService.findByCategorie(categorie, limit, page);
     }
+
+    @Get("new/:isNew/paginated")
+    async findByIsNew(
+        @Query('limit') limit: number = 2,
+        @Query('page') page: number = 1,
+        @Param('isNew') isNew: string
+    ) {
+        const isNewBoolean = isNew === "true";
+        return this.productsService.findByIsNew(isNewBoolean, limit, page);
+    }
 }

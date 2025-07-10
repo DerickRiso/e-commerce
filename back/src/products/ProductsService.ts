@@ -51,4 +51,19 @@ export class ProductService {
             totalPage: Math.ceil(total / limit)
         }
     }
+
+    async findByIsNew(isNew: boolean, limit: number, page: number) {
+        
+        const [data, total] = await this.productRepository.findAndCount({
+            where: {isNew},
+            skip : (page - 1) * limit,
+            take: limit,
+        });
+        return {
+            data,
+            total,
+            page,
+            totalPage: Math.ceil(total / limit)
+        }
+    }
 }

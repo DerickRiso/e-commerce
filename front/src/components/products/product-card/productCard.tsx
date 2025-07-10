@@ -29,7 +29,7 @@ export function ProductCard(props: Product) {
             {calcPercent() > 0 && <span id="discount">
                 -{calcPercent()}%
             </span>}
-            {props.new && <span id="new">
+            {props.isNew && <span id="new">
                 New
             </span>}
 
