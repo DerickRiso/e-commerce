@@ -81,4 +81,20 @@ export class ProductService {
             totalPage: Math.ceil(total / limit)
         }
     }
+
+    async findAllSorted(sortField: string, sortOrder: string, limit: number, page: number) {
+        const [data, total] = await this.productRepository.findAndCount({
+            order: {
+                [sortField]: sortOrder
+            },
+            skip : (page - 1) * limit,
+            take: limit,
+        }) 
+        return {
+            data,
+            total,
+            page,
+            totalPage: Math.ceil(total / limit)
+        }
+    }
 }
