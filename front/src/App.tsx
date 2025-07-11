@@ -22,6 +22,7 @@ function App() {
         limit={8} 
         path={allApi}
         pagination={false}
+        order='default'
         show={"8"}
         cat={"all"}
       />

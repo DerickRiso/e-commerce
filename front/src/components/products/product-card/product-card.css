@@ -7,27 +7,76 @@
     height: 340px;
     position: relative;
     overflow: hidden;
+    transition: 0.3s ease;
 }
 
-.product-card::after {
-    content: "See details";
+.product-card .hover-product {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    width: 100%;
+    height: 100%;
+    filter: opacity(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.product-card .hover-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.product-card .hover-product button {
+    border: none;
+    padding: 10px 40px;
+    background-color: white;
+    color: #B88E2F;
+    font-family: Poppins;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.product-card .hover-product button:hover {
+    background-color: #B88E2F;
+    color: white;
+} 
+
+.product-card .hover-product div {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 1.2em;
-    background-color:rgba(0, 0, 0, 0.342);
-    position: absolute;
-    z-index: 10;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    transition: 0.4s;
-    pointer-events: none;
-    filter: opacity(0);
+    gap: 5px;
 }
 
-.product-card:hover::after {
+.product-card .hover-product div span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    color: white;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.product-card .hover-product div span img {
+    color: white;
+    width: 16px;
+}
+
+.product-card:hover {
+    scale: 1.1;
+}
+
+.product-card:hover .hover-product {
     filter: opacity(1);
+    pointer-events: auto;
 }
 
 .product-card img {
@@ -37,10 +86,18 @@
 .product-card h3 {
     font-weight: 500;
     padding-top: 8px;
+    color: #3a3a3a;
+    
 }
 
 .product-card p{
     font-size: 0.9em;
+    color: #a3a3a3;
+}
+
+.product-card p strong {
+    color: #252525;
+
 }
 
 .product-card .title {
@@ -51,6 +108,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0px 10px;
+    font-size: 1.1em;
 }
 
 .product-card #new {
@@ -88,7 +146,7 @@
     z-index: 2;
 }
 
-.product-card:hover span,
+.product-card:hover #new,
 .product-card:hover #discount {
     opacity: 0;
 }

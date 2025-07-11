@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
-import { createBrowserRouter, RouterProvider } from "react-router"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router"
 import { ShopPage } from './pages/ShopPage';
 import { SingleProductPage } from './pages/SingleProductPage';
 
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/home" replace />
+  },
   {
     path: "/home",
     element: <App />

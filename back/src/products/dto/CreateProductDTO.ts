@@ -21,7 +21,7 @@ export class CreateProductDTO {
     color: string;
 
     @IsBoolean()
-    new: boolean;
+    isNew: boolean;
 
     @IsString()
     title: string;
