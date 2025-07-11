@@ -54,7 +54,7 @@ export class Products {
     sale: number;
 
     @Column()
-    new: boolean;
+    isNew: boolean;
 
     @Column()
     categorie: string;    

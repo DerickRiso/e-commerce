@@ -3,23 +3,31 @@ import block from "../../assets/icons/block.png";
 import list from "../../assets/icons/list.png";
 import "./filter.css"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type FilterSelectProps= {
     value: string;
     filter: string;
+    order: string;
     onChange: (newValue: string) => void;
-    onSelect: (newSelect: string) => void
+    onSelect: (newSelect: string) => void;
+    onOrder: (newOrder: string) => void;
 }
 
-export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps) {
+export function Filter( {value, filter, order, onSelect, onChange, onOrder }: FilterSelectProps) {
 
     const [showValue, setShowValue] = useState(value || "16");
     const [filterValue, setFilterValue] = useState(filter || "all");
+    const [orderValue, setOrderValue] = useState(order || "default")
+
+    const navigate = useNavigate();
+    function navigateTo(path: string) {
+        navigate(`${path}`);
+    }
 
     const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newValue = e.target.value;
         setShowValue(newValue);
-        // Mudança aqui muda o filtro (não sei se é bug)
         onChange(newValue);
     };
 
@@ -29,6 +37,12 @@ export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps)
         onSelect(newFilter);
     };
 
+    const orderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newOrder = e.target.value;
+        setOrderValue(newOrder);
+        onOrder(newOrder);
+    }
+
     return (
         <div className="filter">
             <div>
@@ -36,7 +50,10 @@ export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps)
                     <a>
                         <img src={filt} />
                         Filter
-                        <select id="filter" onChange={filterSelect}>
+                        <select id="filter" onChange={(e) => {
+                            filterSelect(e);
+                            navigateTo((`/shop?category=${e.target.value}`))
+                        }}>
                             <option value="all">All</option>
                             <option value="dining">Dining</option>
                             <option value="living">Living</option>
@@ -53,7 +70,7 @@ export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps)
                     </a>
                 </div>
                 <div>
-                    <p>Showing</p>
+                    <p>Showing 1 - 8 of 24</p>
                 </div>
             </div>
             <div className="sort">
@@ -67,9 +84,11 @@ export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps)
                 <select
                     name="sort-products" 
                     id="sort-products" 
+                    onChange={orderChange}
                 >
                     <option value="default">Default</option>
-                    <option value="price">Price</option>
+                    <option value="PriceLess">Price: more cheap to more expensive</option>
+                    <option value="PriceMore">Price: more expensive to more cheap</option>
                 </select>
             </div>
         </div>

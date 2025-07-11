@@ -15,7 +15,7 @@ export type Product = {
   title: string;
   description: string;
   price: number;
-  new: boolean;
+  isNew: boolean;
   sale: number;
   categorie: Categorie;
 };

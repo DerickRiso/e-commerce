@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Categorie, Product } from "../../../services/productService";
+import share from "../../../assets/icons/share.png"
+import heart from "../../../assets/icons/Heart-white.png"
+import compare from "../../../assets/icons/compare.png"
 import "./product-card.css";
 
 export function ProductCard(props: Product) {
@@ -21,15 +24,32 @@ export function ProductCard(props: Product) {
     }
 
     return (
-        <aside className="product-card" 
-        onClick={() => {
-            navigateTo(`/shop/${props.id}`)
-        }}>
+        <aside className="product-card">
+
+            <div className="hover-product">
+                <button onClick={() => {
+                    navigateTo(`/shop/${props.id}`)
+                }}>See Details</button>
+                <div>
+                    <span>
+                        <img src={share} />
+                        Share
+                    </span>
+                    <span>
+                        <img src={compare} />
+                        Compare
+                    </span>
+                    <span>
+                        <img src={heart} />
+                        Like
+                    </span>
+                </div>
+            </div>
             
             {calcPercent() > 0 && <span id="discount">
                 -{calcPercent()}%
             </span>}
-            {props.new && <span id="new">
+            {props.isNew && <span id="new">
                 New
             </span>}
 
@@ -43,15 +63,15 @@ export function ProductCard(props: Product) {
                 {/* Caso haja promoção, mostra o valor menor */}
                 {props.price !== props.sale && 
                     <p>
-                        <strong>R${props.sale}</strong>
+                        <strong>R$ {props.sale},00</strong>
                     </p>
                 }
 
                 {props.price !== props.sale ? (
-                    <p className="risked">R${props.price}</p>
+                    <p className="risked">R$ {props.price},00</p>
                 ) : (
                     <p>
-                        <strong>R${props.price}</strong>
+                        <strong>R$ {props.price},00</strong>
                     </p>
                 )}
             </div>

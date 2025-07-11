@@ -12,6 +12,7 @@ type ProductsElementsProps = {
     path: string,
     pagination: boolean,
     show: string
+    order: string
     cat: string
 }
 
@@ -38,12 +39,16 @@ export function Products(props: ProductsElementsProps) {
         break;
 
         case "new":
-            fullPath = `${api}/products/new/paginated?limit=${limit}&page=${currentPage}`;
+            fullPath = `${api}/products/new/true/paginated?limit=${limit}&page=${currentPage}`;
         break;
 
         case "sale":
             fullPath = `${api}/products/sale/paginated?limit=${limit}&page=${currentPage}`;
         break;
+    }
+
+    if(props.order !== "default") {
+        fullPath = `${api}/products/${props.order}/paginated?limit=${limit}&page=${currentPage}`;
     }
 
     // Exibe os produtos
@@ -52,7 +57,7 @@ export function Products(props: ProductsElementsProps) {
             setProducts(res.data);
             setTotalPages(res.totalPage);
         });
-    }, [props.path, limit, currentPage, props.cat]);
+    }, [props.path, limit, currentPage, props.cat, props.order]);
 
     // Muda o limit e exibe
     useEffect(() => {
@@ -86,7 +91,7 @@ export function Products(props: ProductsElementsProps) {
                         title={product.title}
                         description={product.description}
                         price={product.price}
-                        new={product.new}
+                        isNew={product.isNew}
                         sale={product.sale}
                     />
                 ))}
@@ -100,23 +105,30 @@ export function Products(props: ProductsElementsProps) {
                         Previous
                     </button>
 
-                    <button onClick={() => {
-                        currentPage > 1? setPage(currentPage - 1) : setPage(currentPage)
-                    }}>
-                        {currentPage < totalPages? currentPage : ""}
+                    {totalPages >= currentPage && currentPage > 1 && (
+                    <button onClick={() => setPage(currentPage - 1)}>
+                        {currentPage - 1}
                     </button>
+                    )}
 
-                    <button onClick={() => {
-                        currentPage < totalPages? setPage(currentPage + 1) : setPage(currentPage)
-                    }}>
-                        {currentPage < totalPages? currentPage+1 : ""}
+                    {totalPages >= currentPage && (
+                    <button onClick={() => setPage(currentPage)}>
+                        {currentPage}
                     </button>
+                    )}
 
-                    <button onClick={() => {
-                        currentPage < totalPages? setPage(currentPage + 1) : setPage(currentPage)
-                    }}>
-                        {currentPage < totalPages? currentPage+2 : ""}
+                    {totalPages >= currentPage + 1 && (
+                    <button onClick={() => setPage(currentPage + 1)}>
+                        {currentPage + 1}
                     </button>
+                    )}
+
+                    {totalPages >= currentPage + 2 && (
+                    <button onClick={() => setPage(currentPage + 2)}>
+                        {currentPage + 2}
+                    </button>
+                    )}
+
 
                     <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
                 </div>

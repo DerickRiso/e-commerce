@@ -3,6 +3,7 @@ import linkedin from '../../assets/icons/linkedin.png';
 import x from '../../assets/icons/x.png';
 import facebook from '../../assets/icons/facebook.png';
 import arrow from '../../assets/icons/arrow.png';
+import star from '../../assets/icons/star.png';
 import { useState } from 'react';
 
 export type SingleProductProps = {
@@ -45,7 +46,7 @@ export function SingleProduct(props: SingleProductProps) {
         target.classList.add('selected-color')
     }
 
-    const [val, setVal] = useState(0);
+    const [val, setVal] = useState(1);
 
     function increase() {
         setVal((prev) => prev + 1);
@@ -55,9 +56,17 @@ export function SingleProduct(props: SingleProductProps) {
         setVal((prev) => (prev > 0 ? prev - 1 : 0));
     }
 
+    const [mainImage, setMainImage] = useState(props.image);
+
     function selectImage(event: React.MouseEvent<HTMLImageElement>) {
         const picture = document.getElementById('big-picture') as HTMLImageElement;
         const clickedImage = event.target as HTMLImageElement;
+
+        if (clickedImage === picture) return;
+        setMainImage(prev => {
+            if (prev === picture.src) return prev;
+            return picture.src;
+        });
 
         const saveSrc = picture.src;
         picture.src = clickedImage.src;
@@ -90,6 +99,16 @@ export function SingleProduct(props: SingleProductProps) {
                         <div className="product-top">
                             <h3>{props.title}</h3>
                             <p>R${props.price},00</p>
+                            <div className='avaliation'>
+                                <div>
+                                    <img src={star}/>
+                                    <img src={star}/>
+                                    <img src={star}/>
+                                    <img src={star}/>
+                                    <img src={star}/>
+                                </div>
+                                <span>5 Costumer Review</span>
+                            </div>
                             <p id='description'>{props.description}</p>
                         </div>
 

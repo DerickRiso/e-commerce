@@ -19,6 +19,7 @@ export function ShopPage() {
 
     const [show, setShow] = useState("8");
     const [filter, setFilter] = useState(category || "all");
+    const [order, setOrder] = useState("default")
 
     return (
         <div className='ShopPage'>
@@ -27,11 +28,15 @@ export function ShopPage() {
             <Filter
                 value={show} 
                 filter={filter} 
+                order={order}
                 onChange={(newValue) => {
                     setShow(newValue);
                 }}
                 onSelect={(newSelect) => {
                     setFilter(newSelect);
+                }}
+                onOrder={(newOrder) => {
+                    setOrder(newOrder);
                 }}
             />
             <Products 
@@ -41,6 +46,7 @@ export function ShopPage() {
                 path={allApi}
                 pagination={true}
                 show={show}
+                order={order}
                 cat={filter}
             />
             <ShopNav pages={true} button={false}/>

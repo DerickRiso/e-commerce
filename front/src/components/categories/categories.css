@@ -18,10 +18,16 @@
 .categories-section div .categorie {
     gap: 10px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.categories-section div .categorie:hover {
+    scale: 1.02;
 }
 
 .categories-section div .categorie p {
     font-size: 1.3em;
+    font-weight: 500;
 }
 
 .categories-section div .categorie img{
