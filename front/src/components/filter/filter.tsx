@@ -3,6 +3,7 @@ import block from "../../assets/icons/block.png";
 import list from "../../assets/icons/list.png";
 import "./filter.css"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type FilterSelectProps= {
     value: string;
@@ -18,6 +19,11 @@ export function Filter( {value, filter, order, onSelect, onChange, onOrder }: Fi
     const [showValue, setShowValue] = useState(value || "16");
     const [filterValue, setFilterValue] = useState(filter || "all");
     const [orderValue, setOrderValue] = useState(order || "default")
+
+    const navigate = useNavigate();
+    function navigateTo(path: string) {
+        navigate(`${path}`);
+    }
 
     const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newValue = e.target.value;
@@ -46,7 +52,10 @@ export function Filter( {value, filter, order, onSelect, onChange, onOrder }: Fi
                     <a>
                         <img src={filt} />
                         Filter
-                        <select id="filter" onChange={filterSelect}>
+                        <select id="filter" onChange={(e) => {
+                            filterSelect(e);
+                            navigateTo((`/shop?category=${e.target.value}`))
+                        }}>
                             <option value="all">All</option>
                             <option value="dining">Dining</option>
                             <option value="living">Living</option>

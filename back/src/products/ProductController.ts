@@ -63,8 +63,6 @@ export class ProductsController {
         return this.productsService.findByIsNew(isNewBoolean, limit, page);
     }
 
-
-
     // Lista todos
     @Get()
     async list() {
