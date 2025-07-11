@@ -7,14 +7,17 @@ import { useState } from "react";
 type FilterSelectProps= {
     value: string;
     filter: string;
+    order: string;
     onChange: (newValue: string) => void;
-    onSelect: (newSelect: string) => void
+    onSelect: (newSelect: string) => void;
+    onOrder: (newOrder: string) => void;
 }
 
-export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps) {
+export function Filter( {value, filter, order, onSelect, onChange, onOrder }: FilterSelectProps) {
 
     const [showValue, setShowValue] = useState(value || "16");
     const [filterValue, setFilterValue] = useState(filter || "all");
+    const [orderValue, setOrderValue] = useState(order || "default")
 
     const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newValue = e.target.value;
@@ -28,6 +31,13 @@ export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps)
         setFilterValue(newFilter);
         onSelect(newFilter);
     };
+
+    const orderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newOrder = e.target.value;
+        console.log(newOrder)
+        setOrderValue(newOrder);
+        onOrder(newOrder);
+    }
 
     return (
         <div className="filter">
@@ -67,9 +77,11 @@ export function Filter( {value, filter, onSelect, onChange }: FilterSelectProps)
                 <select
                     name="sort-products" 
                     id="sort-products" 
+                    onChange={orderChange}
                 >
                     <option value="default">Default</option>
-                    <option value="price">Price</option>
+                    <option value="PriceLess">Price: more cheap to more expensive</option>
+                    <option value="PriceMore">Price: more expensive to more cheap</option>
                 </select>
             </div>
         </div>

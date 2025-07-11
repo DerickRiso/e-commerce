@@ -8,10 +8,20 @@ export class ProductsController {
     constructor(private readonly productsService: ProductService) {}
 
     // Get ordenado
-    @Get('cheapToExpensive/paginated')
-    async findByOrder(
+    @Get('PriceLess/paginated')
+    async findByOrderAsc(
         @Query('sort') sortField: string = 'price',
         @Query('order') sortOrder: 'ASC' | 'DESC' = 'ASC',
+        @Query('limit') limit: number = 2,
+        @Query('page') page: number = 1,
+    ) {
+        return this.productsService.findAllSorted(sortField, sortOrder, limit, page)
+    }
+
+    @Get('PriceMore/paginated')
+    async findByOrderDesc(
+        @Query('sort') sortField: string = 'price',
+        @Query('order') sortOrder: 'ASC' | 'DESC' = 'DESC',
         @Query('limit') limit: number = 2,
         @Query('page') page: number = 1,
     ) {

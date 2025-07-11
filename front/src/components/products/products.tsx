@@ -12,6 +12,7 @@ type ProductsElementsProps = {
     path: string,
     pagination: boolean,
     show: string
+    order: string
     cat: string
 }
 
@@ -46,13 +47,19 @@ export function Products(props: ProductsElementsProps) {
         break;
     }
 
+    if(props.order !== "default") {
+        fullPath = `${api}/products/${props.order}/paginated?limit=${limit}&page=${currentPage}`;
+    }
+
+    console.log(fullPath)
+
     // Exibe os produtos
     useEffect(() => {
         getProducts(fullPath).then((res) => {
             setProducts(res.data);
             setTotalPages(res.totalPage);
         });
-    }, [props.path, limit, currentPage, props.cat]);
+    }, [props.path, limit, currentPage, props.cat, props.order]);
 
     // Muda o limit e exibe
     useEffect(() => {

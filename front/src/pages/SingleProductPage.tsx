@@ -53,6 +53,7 @@ export function SingleProductPage() {
                 limit={4}
                 path={`products/${infoProduct.categorie}`}
                 pagination={false}
+                order="default"
                 show={"4"}
                 cat={""}
             />}
