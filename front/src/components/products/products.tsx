@@ -51,8 +51,6 @@ export function Products(props: ProductsElementsProps) {
         fullPath = `${api}/products/${props.order}/paginated?limit=${limit}&page=${currentPage}`;
     }
 
-    console.log(fullPath)
-
     // Exibe os produtos
     useEffect(() => {
         getProducts(fullPath).then((res) => {

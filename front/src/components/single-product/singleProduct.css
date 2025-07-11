@@ -30,6 +30,28 @@
     padding: 15px;
 }
 
+.product-top .avaliation {
+    display: flex;
+    padding: 12px 0px;
+}
+
+.product-top .avaliation div{
+    display: flex;
+    gap: 5px;
+    padding-right: 20px;
+
+}
+
+.product-top .avaliation div img {
+    width: 20px;
+    height: 20px;
+}
+
+.product-top .avaliation span {
+    border-left: 1px solid black;
+    padding-left: 20px;
+}
+
 .product-info {
     display: flex;
     flex-direction: column;

@@ -28,7 +28,6 @@ export function Filter( {value, filter, order, onSelect, onChange, onOrder }: Fi
     const filterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newValue = e.target.value;
         setShowValue(newValue);
-        // Mudança aqui muda o filtro (não sei se é bug)
         onChange(newValue);
     };
 
@@ -40,7 +39,6 @@ export function Filter( {value, filter, order, onSelect, onChange, onOrder }: Fi
 
     const orderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newOrder = e.target.value;
-        console.log(newOrder)
         setOrderValue(newOrder);
         onOrder(newOrder);
     }
@@ -72,7 +70,7 @@ export function Filter( {value, filter, order, onSelect, onChange, onOrder }: Fi
                     </a>
                 </div>
                 <div>
-                    <p>Showing</p>
+                    <p>Showing 1 - 8 of 24</p>
                 </div>
             </div>
             <div className="sort">
