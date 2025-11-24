@@ -1,12 +1,11 @@
-import React from 'react';
 import './styles/App.css';
-import { Header } from './components/header/header';
-import { Banner } from './components/banner/banner';
-import { Categories } from './components/categories/categories';
-import { Products } from './components/products/products';
-import { Features } from './components/features/features';
-import { Footer } from './components/footer/footer';
-import { ShopNav } from './components/shop-nav/shopNav';
+import Header from './components/header';
+import Banner from './components/banner';
+import Categories from './components/categories';
+import Products from './components/products';
+import Features from './components/features';
+import Footer from './components/footer';
+import ShopNav from './components/shop-nav';
 
 const allApi = "products";
 
@@ -16,16 +15,16 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      <Products 
-        title={"Our Products"} 
+      {/* <Products 
+        title={'Our Products'} 
         showTitle={true} 
         limit={8} 
         path={allApi}
         pagination={false}
-        order='default'
-        show={"8"}
-        cat={"all"}
-      />
+        order="default"
+        show={'8'}
+        cat={'all'}
+      /> */}
       <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />

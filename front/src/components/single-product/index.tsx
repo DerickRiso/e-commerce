@@ -1,4 +1,4 @@
-import './singleProduct.css'
+import './style.css';
 import linkedin from '../../assets/icons/linkedin.png';
 import x from '../../assets/icons/x.png';
 import facebook from '../../assets/icons/facebook.png';
@@ -178,3 +178,5 @@ export function SingleProduct(props: SingleProductProps) {
         </section>
     )
 }
+
+export default SingleProduct;

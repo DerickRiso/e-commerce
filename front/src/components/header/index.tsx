@@ -1,10 +1,9 @@
-import React from "react";
+import './style.css';
 import account from "../../assets/icons/account.png";
 import cart from "../../assets/icons/cart.png";
 import like from "../../assets/icons/like.png";
 import search from "../../assets/icons/search.png";
-import "./header.css";
-import { Nav } from "../nav/nav";
+import Nav from "../nav";
 
 export function Header() {
     return (
@@ -39,3 +38,5 @@ export function Header() {
         </div>
     )
 }
+
+export default Header;

@@ -1,4 +1,4 @@
-import "./banner-shop.css";
+import './style.css';
 
 export function BannerShop() {
     return (
@@ -8,3 +8,5 @@ export function BannerShop() {
         </div>
     )
 }
+
+export default BannerShop;

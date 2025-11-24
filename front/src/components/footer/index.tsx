@@ -1,5 +1,5 @@
-import { Nav } from "../nav/nav";
-import "./footer.css";
+import './style.css';
+import { Nav } from "../nav";
 
 export function Footer() {
     return (
@@ -35,3 +35,5 @@ export function Footer() {
         </footer>
     )
 }
+
+export default Footer;

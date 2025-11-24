@@ -1,9 +1,9 @@
 import filt from "../../assets/icons/filter.png";
 import block from "../../assets/icons/block.png";
 import list from "../../assets/icons/list.png";
-import "./filter.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './style.css';
 
 type FilterSelectProps= {
     value: string;
@@ -94,3 +94,5 @@ export function Filter( {value, filter, order, onSelect, onChange, onOrder }: Fi
         </div>
     )
 }
+
+export default Filter;

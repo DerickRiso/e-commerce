@@ -1,8 +1,6 @@
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Nav() {
-
-    // hook para navegacao
     const navigate = useNavigate();
     function navigateTo(path: string) {
         navigate(`${path}`);
@@ -27,3 +25,5 @@ export function Nav() {
         </nav>
     )
 }
+
+export default Nav;

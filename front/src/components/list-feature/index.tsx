@@ -1,4 +1,4 @@
-import "./list.css"
+import './style.css';
 
 type ListFeaturesProps = {
     img: string,
@@ -17,3 +17,5 @@ export function ListFeatures(props: ListFeaturesProps) {
         </li>
     )
 }
+
+export default ListFeatures;

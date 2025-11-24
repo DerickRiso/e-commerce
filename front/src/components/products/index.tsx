@@ -1,7 +1,7 @@
-import { ProductCard } from "./product-card/productCard";
+import './style.css';
+import ProductCard from ".././product-card";
 import { useEffect, useState } from "react";
 import { getProducts, Product } from "../../services/productService";
-import "./products.css";
 
 const api = process.env.REACT_APP_API;
 
@@ -140,3 +140,5 @@ export function Products(props: ProductsElementsProps) {
         </section>
     )
 }
+
+export default Products;

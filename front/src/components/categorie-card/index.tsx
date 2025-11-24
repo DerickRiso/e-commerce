@@ -25,3 +25,5 @@ export function CardCategorie(props: CardCategorieProps) {
         </article>
     )
 }
+
+export default CardCategorie;

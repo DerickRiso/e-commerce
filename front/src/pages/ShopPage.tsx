@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
 import "../styles/index.css";
-import { Header } from '../components/header/header';
-import { BannerShop } from '../components/banner-shop/bannerShop'
-import { Products } from '../components/products/products';
-import { Features } from '../components/features/features';
-import { Footer } from '../components/footer/footer';
-import { Filter } from '../components/filter/filter';
-import { ShopNav } from '../components/shop-nav/shopNav';
+import Header from '../components/header';
+import BannerShop from '../components/banner-shop'
+import Products from '../components/products';
+import Features from '../components/features';
+import Footer from '../components/footer';
+import Filter from '../components/filter';
+import ShopNav from '../components/shop-nav';
 import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 
 const allApi = "products"
 

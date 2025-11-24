@@ -1,9 +1,10 @@
-import { ListFeatures } from "./list-feature/list";
+import './style.css';
 import trophy from "../../assets/icons/trophy.png";
 import check from "../../assets/icons/check.png";
 import shipping from "../../assets/icons/shipping.png";
 import support from "../../assets/icons/support.png";
-import "./features.css";
+import ListFeatures from "../list-feature";
+
 
 export function Features() {
     return (
@@ -17,3 +18,5 @@ export function Features() {
         </aside>
     )
 }
+
+export default Features;

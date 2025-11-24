@@ -1,12 +1,12 @@
-import { Footer } from "../components/footer/footer";
-import { Header } from "../components/header/header";
-import { Products } from "../components/products/products";
-import { ShopNav } from "../components/shop-nav/shopNav";
-import { useParams } from "react-router-dom";
 import "../styles/App.css";
-import { SingleProduct } from "../components/single-product/singleProduct";
-import { SingleProductProps } from "../components/single-product/singleProduct";
+import Footer from "../components/footer";
+import Header from "../components/header";
+import Products from "../components/products";
+import ShopNav from "../components/shop-nav";
+import SingleProduct from "../components/single-product";
+import type SingleProductProps from "../components/single-product";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../services/productService";
 
 export function SingleProductPage() {

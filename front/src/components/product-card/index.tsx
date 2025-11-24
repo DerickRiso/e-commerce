@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import { Categorie, Product } from "../../../services/productService";
-import share from "../../../assets/icons/share.png"
-import heart from "../../../assets/icons/Heart-white.png"
-import compare from "../../../assets/icons/compare.png"
-import "./product-card.css";
+import './style.css'
+import share from "../../assets/icons/share.png"
+import heart from "../../assets/icons/Heart-white.png"
+import compare from "../../assets/icons/compare.png"
+import { Product } from "../../services/productService"
+import { useNavigate } from "react-router-dom"
+
+
 
 export function ProductCard(props: Product) {
 
@@ -78,3 +80,5 @@ export function ProductCard(props: Product) {
         </aside>
     )
 }
+
+export default ProductCard;

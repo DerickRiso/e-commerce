@@ -1,6 +1,6 @@
-import "./banner.css";
+import './style.css';
 
-export function Banner () {
+export default function Banner () {
     return (
         <div className="banner">
             <div>
