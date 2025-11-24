@@ -9,8 +9,8 @@ import { useState } from 'react';
 export type SingleProductProps = {
     id: number;
     title: string,
-    price: string,
-    sale: string,
+    price: number,
+    sale: number,
     description: string,
     longDescription: string,
     size: string,

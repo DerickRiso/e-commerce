@@ -15,7 +15,7 @@ export type Product = {
   title: string;
   description: string;
   price: number;
-  isNew: boolean;
+  isNew: boolean | undefined;
   sale: number;
   categorie: Categorie;
 };
