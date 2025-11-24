@@ -15,7 +15,7 @@ function App() {
       <Header />
       <Banner />
       <Categories />
-      {/* <Products 
+      <Products 
         title={'Our Products'} 
         showTitle={true} 
         limit={8} 
@@ -24,7 +24,7 @@ function App() {
         order="default"
         show={'8'}
         cat={'all'}
-      /> */}
+      />
       <ShopNav pages={false} button={true}/>
       <Features />
       <Footer />
